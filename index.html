@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FNT BIO 제품 카탈로그</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2e7d4f;
+    --green-pale: #e8f5ee;
+    --blue: #1a4f8a;
+    --blue-light: #2979c8;
+    --blue-pale: #e8f0fb;
+    --gold: #c9a227;
+    --gold-pale: #fdf8e8;
+    --gray-dark: #1e1e2e;
+    --gray-mid: #555;
+    --gray-light: #f5f5f7;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --radius: 14px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans KR',sans-serif; background:#f7f9fc; color:var(--gray-dark); line-height:1.6; }
+
+  header { background:linear-gradient(135deg,#0d3320 0%,#1b5e38 50%,#2e7d4f 100%); color:white; padding:56px 40px 46px; text-align:center; position:relative; overflow:hidden; }
+  header::before { content:''; position:absolute; top:-60px; right:-60px; width:300px; height:300px; border-radius:50%; background:rgba(255,255,255,0.05); }
+  header::after  { content:''; position:absolute; bottom:-80px; left:-40px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.04); }
+  .header-logo { font-family:'Montserrat',sans-serif; font-size:2.6rem; font-weight:900; letter-spacing:3px; margin-bottom:8px; }
+  .header-logo span { color:#7de3a8; }
+  .header-sub { font-size:1rem; opacity:0.75; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+  .header-contact { display:inline-block; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:50px; padding:8px 24px; font-size:0.9rem; margin-top:8px; }
+
+  nav { background:white; border-bottom:2px solid #e8eaf0; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  .nav-inner { max-width:1100px; margin:0 auto; display:flex; overflow-x:auto; }
+  .nav-btn { padding:16px 36px; font-family:'Noto Sans KR',sans-serif; font-size:0.95rem; font-weight:500; color:var(--gray-mid); border:none; background:none; cursor:pointer; white-space:nowrap; border-bottom:3px solid transparent; transition:all 0.2s; }
+  .nav-btn:hover { color:var(--green); }
+  .nav-btn.active { color:var(--green); border-bottom-color:var(--green); font-weight:700; }
+
+  main { max-width:1100px; margin:0 auto; padding:40px 20px 80px; }
+  .section { display:none; animation:fadeIn 0.3s ease; }
+  .section.active { display:block; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+  .section-header { display:flex; align-items:center; gap:14px; margin-bottom:28px; padding-bottom:14px; border-bottom:2px solid #eee; }
+  .section-icon { width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; }
+  .section-icon.green { background:var(--green-pale); }
+  .section-icon.blue  { background:var(--blue-pale); }
+  .section-title { font-size:1.45rem; font-weight:700; }
+  .section-desc  { font-size:0.88rem; color:var(--gray-mid); margin-top:2px; }
+
+  .cat-label { font-size:0.75rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:white; background:var(--green); display:inline-block; padding:4px 12px; border-radius:4px; margin:26px 0 12px; }
+  .cat-label.blue { background:var(--blue); }
+  .cat-label.gold { background:var(--gold); }
+  .cat-label.gray { background:#7a7a8a; }
+
+  .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:18px; margin-bottom:4px; }
+
+  .card { background:white; border-radius:var(--radius); box-shadow:var(--shadow); padding:22px; border:1px solid #edf0f5; transition:transform 0.2s,box-shadow 0.2s; position:relative; overflow:hidden; }
+  .card:hover { transform:translateY(-4px); box-shadow:0 10px 36px rgba(0,0,0,0.13); }
+  .ca { position:absolute; top:0; left:0; width:4px; height:100%; border-radius:14px 0 0 14px; }
+  .ca.green { background:var(--green); }
+  .ca.blue  { background:var(--blue-light); }
+  .ca.gold  { background:var(--gold); }
+  .ca.gray  { background:#bbb; }
+
+  .card-name    { font-size:1.02rem; font-weight:700; margin-bottom:4px; color:var(--gray-dark); }
+  .card-name a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1.5px dashed #bbb;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .card-name a:hover {
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
+  .card-name a .link-icon {
+    font-size: 0.75rem;
+    margin-left: 5px;
+    opacity: 0.5;
+  }
+  .card-name-en { font-size:0.76rem; color:#bbb; font-family:'Montserrat',sans-serif; margin-bottom:9px; }
+  .card-feature { font-size:0.86rem; color:var(--gray-mid); margin-bottom:10px; line-height:1.5; }
+  .card-tags    { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px; }
+  .tag { font-size:0.73rem; padding:3px 9px; border-radius:20px; font-weight:500; }
+  .tag.green { background:var(--green-pale); color:var(--green); }
+  .tag.blue  { background:var(--blue-pale);  color:var(--blue-light); }
+  .tag.gold  { background:var(--gold-pale);  color:#9a7a00; }
+  .tag.gray  { background:#f0f0f0; color:#777; }
+
+  .card-spec { font-size:0.81rem; color:var(--gray-mid); background:var(--gray-light); border-radius:8px; padding:9px 11px; line-height:1.75; }
+  .spec-table { width:100%; border-collapse:collapse; font-size:0.81rem; }
+  .spec-table td { padding:3px 5px; vertical-align:top; }
+  .spec-table td:first-child { color:#aaa; width:82px; white-space:nowrap; }
+
+  /* overview */
+  .overview-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin-bottom:36px; }
+  .ov-card { background:white; border-radius:var(--radius); padding:26px; box-shadow:var(--shadow); border:1px solid #eee; text-align:center; cursor:pointer; transition:all 0.2s; }
+  .ov-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(0,0,0,0.12); }
+  .ov-card .oi { font-size:2.2rem; margin-bottom:10px; }
+  .ov-card .ot { font-weight:700; font-size:1rem; margin-bottom:5px; }
+  .ov-card .od { font-size:0.82rem; color:var(--gray-mid); }
+  .ov-card.green { border-top:4px solid var(--green); }
+  .ov-card.blue  { border-top:4px solid var(--blue-light); }
+
+  footer { background:var(--gray-dark); color:rgba(255,255,255,0.6); text-align:center; padding:34px 20px; font-size:0.85rem; line-height:1.9; }
+  footer strong { color:white; font-size:1rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo">FNT <span>BIO</span></div>
+  <div class="header-sub">(주)에프앤티바이오</div>
+  <div class="header-contact">📞 010-5269-1459 &nbsp;|&nbsp; ✉ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0d653f3b343c3938344d636c7b687f236e6260">[email&#160;protected]</a></div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="show('overview')">전체 개요</button>
+    <button class="nav-btn" onclick="show('chukwoo')">🐄 축우용</button>
+    <button class="nav-btn" onclick="show('poultry')">🐷 양돈/양계용</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══ OVERVIEW ══ -->
+<div id="overview" class="section active">
+  <div class="section-header">
+    <div class="section-icon green">📋</div>
+    <div>
+      <div class="section-title">전체 제품 개요</div>
+      <div class="section-desc">카테고리를 선택하시면 상세 정보를 확인하실 수 있습니다</div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <div class="ov-card green" onclick="show('chukwoo')">
+      <div class="oi">🐄</div>
+      <div class="ot">축우용 제품</div>
+      <div class="od">미네랄·비타민 / 한우고급육 / 장건강<br>고온스트레스 / 항톡신 / 발효 등 20종</div>
+    </div>
+    <div class="ov-card blue" onclick="show('poultry')">
+      <div class="oi">🐷</div>
+      <div class="ot">양돈 / 양계용 제품</div>
+      <div class="od">미네랄·비타민 / 소화효소 / 항균·항독소<br>기호성·환경개선 등 12종</div>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top:4px;">
+    <div class="section-icon green">📌</div>
+    <div><div class="section-title">전체 제품 한눈에 보기</div></div>
+  </div>
+
+  <span class="cat-label">축우용 주요 제품</span>
+  <div class="product-grid">
+    <div class="card"><div class="ca green"></div><div class="card-name"><a href="products/mineral-allq-gold.html" target="_blank">미네랄올큐 골드<span class="link-icon">🔗</span></a> / <a href="products/mineral-allq-gold.html" target="_blank">미네랄올큐<span class="link-icon">🔗</span></a> / <a href="products/vita-allq.html" target="_blank">비타올큐<span class="link-icon">🔗</span></a></div><div class="card-feature">고함량 미네랄·비타민 올인원 제품군. 전구간 면역·번식·성장 지원</div><div class="card-tags"><span class="tag green">전구간</span><span class="tag green">미네랄·비타민</span></div></div>
+    <div class="card"><div class="ca gold"></div><div class="card-name"><a href="products/hanwoo-breed-plus.html" target="_blank">한우번식플러스<span class="link-icon">🔗</span></a></div><div class="card-feature">번식우 전용 유기태 미네랄·비타민 프리믹스. 발정·수정·착상률 개선</div><div class="card-tags"><span class="tag gold">번식우</span><span class="tag gold">두당 20g/일</span></div></div>
+    <div class="card"><div class="ca blue"></div><div class="card-name">루멘패스 MET · 라이신</div><div class="card-feature">반추위 바이패스형 아미노산. 유량·유단백 유지 및 한우 고급육 생산</div><div class="card-tags"><span class="tag blue">착유우</span><span class="tag blue">비육우</span></div></div>
+    <div class="card"><div class="ca blue"></div><div class="card-name"><a href="products/twobull-hanwoo.html" target="_blank">투뿔한우<span class="link-icon">🔗</span></a></div><div class="card-feature">근내지방(IMF)+등심단면적(LEA) 동시 극대화 유기태 미네랄 보조제</div><div class="card-tags"><span class="tag blue">비육기</span><span class="tag blue">마블링</span></div></div>
+    <div class="card"><div class="ca blue"></div><div class="card-name">루멘패스 비타민 AD3E · 콜린</div><div class="card-feature">반추위 보호형 코팅 비타민 및 간기능 개선 코팅 콜린</div><div class="card-tags"><span class="tag blue">코팅비타민</span><span class="tag blue">착유우</span></div></div>
+    <div class="card"><div class="ca green"></div><div class="card-name">프로서플 · 하이엔드 프로서플</div><div class="card-feature">유산균 발효대두박. 바이패스 단백질 우수, 반추위 조기발달 기여</div><div class="card-tags"><span class="tag green">단백질</span><span class="tag green">소화율</span></div></div>
+    <div class="card"><div class="ca green"></div><div class="card-name">린텍스 · 에너지 플러스</div><div class="card-feature">오메가3 공급원 및 고효율 유화제. 번식성적·마블링·장건강 개선</div><div class="card-tags"><span class="tag green">번식</span><span class="tag green">비육</span></div></div>
+    <div class="card"><div class="ca green"></div><div class="card-name">YEA-SACC · 프리이스트자임 · 루프로민 밸런스</div><div class="card-feature">고농축 효모·NSP효소·버퍼제 복합. 반추위 기능·소화율·산독증 예방</div><div class="card-tags"><span class="tag green">반추위</span><span class="tag green">장건강</span></div></div>
+    <div class="card"><div class="ca green"></div><div class="card-name">건조당밀 · CSL POWDER · 천연부숙제</div><div class="card-feature">기호성·발효촉진 및 분뇨 부숙·악취 저감</div><div class="card-tags"><span class="tag green">발효</span><span class="tag green">환경개선</span></div></div>
+    <div class="card"><div class="ca gold"></div><div class="card-name">시원해 1호 · 2호</div><div class="card-feature">고온스트레스 전해질 보충 및 코팅 비타민·유기태 미네랄 공급</div><div class="card-tags"><span class="tag gold">고온스트레스</span></div></div>
+    <div class="card"><div class="ca gray"></div><div class="card-name">마이코펑 · 톡시덱스 프리머스</div><div class="card-feature">천연 항진균 + 광범위 독소 대응. 간보호·해독·면역증강</div><div class="card-tags"><span class="tag gray">항톡신</span><span class="tag gray">전축종</span></div></div>
+  </div>
+
+  <span class="cat-label blue">양돈/양계용 주요 제품</span>
+  <div class="product-grid">
+    <div class="card"><div class="ca green"></div><div class="card-name"><a href="products/mineral-allq-gold.html" target="_blank">미네랄올큐 골드<span class="link-icon">🔗</span></a> / <a href="products/mineral-allq-gold.html" target="_blank">미네랄올큐<span class="link-icon">🔗</span></a> / <a href="products/vita-allq.html" target="_blank">비타올큐<span class="link-icon">🔗</span></a></div><div class="card-feature">고함량 미네랄·비타민 올인원 제품군. 전단계 면역·성장 지원</div><div class="card-tags"><span class="tag green">전구간</span><span class="tag green">미네랄·비타민</span></div></div>
+    <div class="card"><div class="ca blue"></div><div class="card-name">에너지 플러스 · 프리이스트자임</div><div class="card-feature">유화제 및 NSP효소 복합. 지방소화·성장·장건강·소화율 향상</div><div class="card-tags"><span class="tag blue">자돈</span><span class="tag blue">육계</span><span class="tag blue">산란계</span></div></div>
+    <div class="card"><div class="ca blue"></div><div class="card-name">피타아제 · NSP 효소 라인업</div><div class="card-feature">피틴산 분해율 60%↑. 국내 최저가 효소 전 라인업</div><div class="card-tags"><span class="tag blue">육계</span><span class="tag blue">오리</span><span class="tag blue">산란계</span></div></div>
+    <div class="card"><div class="ca blue"></div><div class="card-name">GOD · AMARIL</div><div class="card-feature">항균·항톡신 효소제 및 식물추출물 복합 항균제</div><div class="card-tags"><span class="tag blue">양돈</span><span class="tag blue">양계</span></div></div>
+    <div class="card"><div class="ca gray"></div><div class="card-name">마이코펑 · 톡시덱스 프리머스</div><div class="card-feature">천연 항진균 + 광범위 독소 대응. 자돈·육계 특히 우수</div><div class="card-tags"><span class="tag gray">항톡신</span><span class="tag gray">전축종</span></div></div>
+    <div class="card"><div class="ca green"></div><div class="card-name">YEA-SACC · 린텍스 · 건조당밀 · 천연부숙제</div><div class="card-feature">효모·오메가3·기호성 개선 및 악취·환경 개선</div><div class="card-tags"><span class="tag green">기호성</span><span class="tag green">환경개선</span></div></div>
+  </div>
+</div>
+
+
+<!-- ══ CHUKWOO ══ -->
+<div id="chukwoo" class="section">
+  <div class="section-header">
+    <div class="section-icon green">🐄</div>
+    <div>
+      <div class="section-title">축우용 제품</div>
+      <div class="section-desc">미네랄·비타민부터 한우 고급육, 건강관리까지 전체 20종</div>
+    </div>
+  </div>
+
+  <span class="cat-label">미네랄 · 비타민</span>
+  <div class="product-grid">
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/mineral-allq-gold.html" target="_blank">미네랄올큐 골드<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Mineral All-Q Gold</div>
+      <div class="card-feature">송아지부터 번식우까지 단 하나로 완성하는 고함량 프리미엄 미네랄. 난소기능 활성화 및 면역력 강화</div>
+      <div class="card-tags"><span class="tag green">전구간 급여</span><span class="tag green">난소기능 활성화</span><span class="tag green">면역력 강화</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>비타민A</td><td><strong>2,000,000 IU/kg 이상</strong></td></tr>
+          <tr><td>비타민D3</td><td><strong>400,000 IU/kg 이상</strong></td></tr>
+          <tr><td>비타민E</td><td>1,000 mg/kg 이상</td></tr>
+          <tr><td>망간(Mn)</td><td>8,500 mg/kg &nbsp;|&nbsp; 구리(Cu) 2,500 mg/kg</td></tr>
+          <tr><td>형태</td><td>가루, 전 구간 급여용</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/mineral-allq-gold.html" target="_blank">미네랄올큐<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Mineral All-Q</div>
+      <div class="card-feature">핵심 미량광물 + 비타민E 보강 끝! 사료는 맞는데 성적이 아쉽다면 미네랄부터 점검하세요</div>
+      <div class="card-tags"><span class="tag green">올인원 보강</span><span class="tag green">급여 편의성</span><span class="tag green">기초영양 안정화</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>비타민E</td><td><strong>500 mg/kg 이상</strong></td></tr>
+          <tr><td>아연(Zn)</td><td>80,000 mg/kg 이상</td></tr>
+          <tr><td>망간(Mn)</td><td>54,000 mg/kg 이상</td></tr>
+          <tr><td>권장량</td><td>배합사료 톤당 0.1%</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/vita-allq.html" target="_blank">비타올큐<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Vita All-Q</div>
+      <div class="card-feature">송아지 설사·비육 정체·번식 흔들림의 공통 원인은 '비타민 공백'. 기본을 채우는 가장 싸고 빠른 예방</div>
+      <div class="card-tags"><span class="tag green">송아지</span><span class="tag green">육성·비육</span><span class="tag green">번식우</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>비타민A</td><td><strong>8,000,000 IU/kg</strong></td></tr>
+          <tr><td>비타민D3</td><td><strong>2,000,000 IU/kg</strong></td></tr>
+          <tr><td>비타민E</td><td><strong>30,000 mg/kg</strong></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca gold"></div>
+      <div class="card-name"><a href="products/hanwoo-breed-plus.html" target="_blank">한우번식플러스<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Hanwoo Breed Plus</div>
+      <div class="card-feature">번식우 전용 유기태 미네랄·비타민 프리믹스. 벗짚·배합사료만으로는 부족한 번식 성적을 확실히 잡아줍니다</div>
+      <div class="card-tags"><span class="tag gold">발정회복↑</span><span class="tag gold">수정률↑</span><span class="tag gold">착상률↑</span><span class="tag gold">초기유산↓</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>주요성분</td><td>유기태 Zn·Mn·Cu·Se (20%), 베타카로틴, 비타민A·D·E, 호모셀레늄</td></tr>
+          <tr><td>권장급여</td><td><strong>두당 20g / 일</strong></td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="cat-label blue">한우 고급육</span>
+  <div class="product-grid">
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/rumenpass-methionine.html" target="_blank">루멘패스 MET<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Rumenpass Methionine</div>
+      <div class="card-feature">반추위 바이패스 DL-메치오닌. 단백질 1.8% 줄여도 유량·유단백 유지. 질소 배출 감소</div>
+      <div class="card-tags"><span class="tag blue">착유우</span><span class="tag blue">비육우</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>함량</td><td>DL-메치오닌 60%</td></tr>
+          <tr><td>착유우</td><td>30g / 일, 두당 &nbsp;|&nbsp; 비육우 15g / 일, 두당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/rumenpass-lysine.html" target="_blank">루멘패스 라이신<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Rumenpass Lysine</div>
+      <div class="card-feature">소장 흡수형 바이패스 라이신. 유성분·유량 향상 및 등심단면적·근내지방 개선</div>
+      <div class="card-tags"><span class="tag blue">착유우</span><span class="tag blue">비육우</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>함량</td><td>라이신 40%</td></tr>
+          <tr><td>착유우</td><td>150g / 일 &nbsp;|&nbsp; 비육우 50g / 일, 두당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/twobull-hanwoo.html" target="_blank">투뿔한우<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">2++ Hanwoo Premium</div>
+      <div class="card-feature">근내지방(IMF) + 등심단면적(LEA) 극대화. 유기태 미네랄 위주 고흡수율 구성</div>
+      <div class="card-tags"><span class="tag blue">비육기 15개월~</span><span class="tag blue">마블링</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분</td><td>유기태 Zn/Se/Mn/Cu/Cr, 루멘패스 비타민E·C</td></tr>
+          <tr><td>급여량</td><td>40~60g / 일, 두당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/rumenpass-methionine.html" target="_blank">루멘패스 비타민 AD3E<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Rumenpass Vit AD3E</div>
+      <div class="card-feature">마이크로캡슐레이팅 반추위 보호형 코팅 비타민. 반추위 내 파괴 없이 장내 흡수 보장</div>
+      <div class="card-tags"><span class="tag blue">코팅비타민</span><span class="tag blue">전구간</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분/kg</td><td>비타민A 5,000,000IU · D3 1,000,000IU · E 150,000mg</td></tr>
+          <tr><td>용량</td><td>송아지 145g/톤 &nbsp;|&nbsp; 비육우 90g/톤 &nbsp;|&nbsp; 착유우 80~150g/톤</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/rumenpass-lysine.html" target="_blank">루멘패스 콜린<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Rumenpass Choline</div>
+      <div class="card-feature">제4위 흡수형 코팅 콜린. 반추가축 간기능 개선 및 체세포수 감소, 생산성 향상</div>
+      <div class="card-tags"><span class="tag blue">착유우</span><span class="tag blue">간기능</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>함량</td><td>코팅콜린 25% 이상</td></tr>
+          <tr><td>착유우</td><td>45~60g / 일 &nbsp;|&nbsp; 비육우 500~1,000g / 사료톤당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/energy-plus.html" target="_blank">에너지 플러스<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Energy Plus</div>
+      <div class="card-feature">피마자유 유래 고급 비이온계 유화제. 지방소화·성장·장건강 동시 개선</div>
+      <div class="card-tags"><span class="tag green">비육우</span><span class="tag green">착유우</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>비육우</td><td>12.5g / 일, 두당 &nbsp;|&nbsp; 착유우 350g / 사료톤당</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="cat-label">장건강 · 영양</span>
+  <div class="product-grid">
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/yea-sacc.html" target="_blank">YEA-SACC (이섹)<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Yea-Sacc Live Yeast</div>
+      <div class="card-feature">고농축 살아있는 효모. 섬유소 박테리아 증식으로 반추위 기능 향상, 스트레스 시 사료섭취량 회복</div>
+      <div class="card-tags"><span class="tag green">전축종</span><span class="tag green">반추위</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>함량</td><td>S. Cerevisiae Min 1.0×10⁸ CFU/g</td></tr>
+          <tr><td>비육우</td><td>2kg/톤 &nbsp;|&nbsp; 송아지 1kg/톤 &nbsp;|&nbsp; 육성우 0.5kg/톤</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/rumenpass-lysine.html" target="_blank">린텍스<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Lin Tex</div>
+      <div class="card-feature">Linseed 특허공법 오메가3 공급원. 번식성적 개선·마블링·젖소 체세포수 감소 및 항염 효과</div>
+      <div class="card-tags"><span class="tag green">번식</span><span class="tag green">비육</span><span class="tag green">낙농</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분</td><td>조단백 20%↑ / 조지방 23%↑ / 오메가3 다량</td></tr>
+          <tr><td>번식·비육</td><td>200g / 일 &nbsp;|&nbsp; 착유우 300g / 일, 두당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/pre-yeastzyme.html" target="_blank">프리이스트자임<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Pre-yeastzyme</div>
+      <div class="card-feature">NSP효소+단백질효소+유기산+효모+고초균 복합. 분변 SCORE 개선 및 장내 유익균 활성화</div>
+      <div class="card-tags"><span class="tag green">장건강</span><span class="tag green">소화율</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>송아지·번식</td><td>사료톤당 0.2%</td></tr>
+          <tr><td>육성·비육</td><td>사료톤당 0.1%</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/rupromin-balance.html" target="_blank">루프로민 밸런스<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Rupromin Balance</div>
+      <div class="card-feature">알칼리제+버퍼제 조합. Acid Buff 1.5배 효과. 반추위 산독증 예방 및 건물 섭취량 증가</div>
+      <div class="card-tags"><span class="tag green">낙농</span><span class="tag green">비육</span><span class="tag green">산독증</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>낙농</td><td>100~250g / 일, 두당 &nbsp;|&nbsp; 비육 80~100g / 일, 두당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/prosurple.html" target="_blank">프로서플 (발효대두박)<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Prosurple Fermented SBM</div>
+      <div class="card-feature">유산균 혐기발효 대두박. 항영향인자 제거, 바이패스 단백질율 우수, 반추위 조기발달 기여</div>
+      <div class="card-tags"><span class="tag green">송아지</span><span class="tag green">비육우</span><span class="tag green">착유우</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>함량</td><td>단백질 45%↑ (실분석 50% 내외)</td></tr>
+          <tr><td>비육우</td><td>150~200g/두 &nbsp;|&nbsp; 착유우 300~500g/두</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/highend-prosurple.html" target="_blank">하이엔드 프로서플<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">High-End Prosurple</div>
+      <div class="card-feature">유산균·효모 발효 후 NSP ENZYME 첨가. 단백질 펩타이드 형태 이용성 향상 및 항산화·항염증 효과</div>
+      <div class="card-tags"><span class="tag green">고기능</span><span class="tag green">항산화</span><span class="tag green">소화율</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>함량</td><td>단백질 50%↑ / NSP ENZYME 포함</td></tr>
+          <tr><td>육성·비육</td><td>0.1% / 사료톤당 &nbsp;|&nbsp; 착유우 0.15% / 사료톤당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/enzyme-series.html" target="_blank">NSP ENZYME & PHYTASE<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">NSP Enzyme Lineup</div>
+      <div class="card-feature">알파아밀라제·베타만나아제·자이라나제·파이타제·셀룰라나제 등. 국내 최저가 공급</div>
+      <div class="card-tags"><span class="tag green">전축종</span><span class="tag green">사료효율</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>규격</td><td>25kg 파우더/그래뉼 &nbsp;|&nbsp; 부형제: 옥수수 전분</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="cat-label">발효촉진 · 기호성</span>
+  <div class="product-grid">
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/dried-molasses.html" target="_blank">건조당밀<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Dried Molasses</div>
+      <div class="card-feature">액상 당밀을 건조한 기호성·에너지 소재. 반추위 미생물 활동 촉진 및 프리믹스 부형제 활용</div>
+      <div class="card-tags"><span class="tag green">기호성</span><span class="tag green">발효제</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분</td><td>조단백 9%↑ / Total sugar 40%↑</td></tr>
+          <tr><td>번식·비육</td><td>50~100g / 일, 두당 &nbsp;|&nbsp; 착유우 200g / 일 &nbsp;|&nbsp; 송아지 30g / 일</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/csl-powder.html" target="_blank">CSL POWDER (옥수수침지분말)<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Corn Steep Liquor Powder</div>
+      <div class="card-feature">옥수수 침지·효모·효소 발효 농축 건조 원료. 단백질·아미노산 공급원이자 발효제로 기호성 우수</div>
+      <div class="card-tags"><span class="tag green">단백질</span><span class="tag green">발효제</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분</td><td>조단백 42%↑ / 총아미노산 79.5%</td></tr>
+          <tr><td>용량</td><td>TMF 배합 시 사료톤당 1.25% (1/2포)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/natural-composting.html" target="_blank">천연부숙제 (FB)<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Natural Composting Agent</div>
+      <div class="card-feature">25년 발효기술. 분변 질소 극소화·악취 저감·분뇨 부숙 시간 단축. 면역력 개선 및 스트레스 감소</div>
+      <div class="card-tags"><span class="tag green">악취저감</span><span class="tag green">환경개선</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분</td><td>효모 2×10⁸ CFU/g, 바실러스 서브틸러스 3×10⁹ u/g</td></tr>
+          <tr><td>용량</td><td>젖소·한우: 사료톤당 1~2kg</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="cat-label gold">고온스트레스 · 항톡신</span>
+  <div class="product-grid">
+
+    <div class="card">
+      <div class="ca gold"></div>
+      <div class="card-name"><a href="products/cool-1.html" target="_blank">시원해 1호<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">HV-D Electrolyte</div>
+      <div class="card-feature">전해질+반추위 완충액. 열스트레스·땀으로 손실된 미네랄 즉시 보충, 산증 예방</div>
+      <div class="card-tags"><span class="tag gold">고온스트레스</span><span class="tag gold">전해질</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분</td><td>Na, K, Mg 등 대량미네랄</td></tr>
+          <tr><td>한우</td><td>50g/두/일 &nbsp;|&nbsp; 젖소 100g/두/일</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca gold"></div>
+      <div class="card-name"><a href="products/cool-2.html" target="_blank">시원해 2호<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">HV-D Mineral·Vitamin</div>
+      <div class="card-feature">코팅 비타민E·C + 유기태 Se·Zn + 비테인. 고온 안정 공급, 식욕 유지 및 번식 성적 안정화</div>
+      <div class="card-tags"><span class="tag gold">코팅비타민</span><span class="tag gold">유기태미네랄</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>한우</td><td>20~50g/두/일 &nbsp;|&nbsp; 젖소 50~75g/두/일</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca gray"></div>
+      <div class="card-name"><a href="products/micofung.html" target="_blank">마이코펑<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Micofung®</div>
+      <div class="card-feature">천연 항진균제(감귤추출물+유기산). 곰팡이·박테리아·독소 복합억제, 장기 저장 안정성 우수</div>
+      <div class="card-tags"><span class="tag gray">항진균</span><span class="tag gray">전축종</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>용량</td><td>사료 톤당 250~2,000g</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca gray"></div>
+      <div class="card-name"><a href="products/toxidex-primus.html" target="_blank">톡시덱스 프리머스<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Toxidex Primus®</div>
+      <div class="card-feature">DON·ZEN·Afla 등 광범위 독소 대응. 간보호+해독+면역증강 복합 시스템</div>
+      <div class="card-tags"><span class="tag gray">항독소</span><span class="tag gray">전축종</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분</td><td>SiO₂, Al₂O₃, Selenium, DL-Methionine</td></tr>
+          <tr><td>용량</td><td>사료 톤당 0.5~2kg</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ POULTRY/HOG ══ -->
+<div id="poultry" class="section">
+  <div class="section-header">
+    <div class="section-icon blue">🐷</div>
+    <div>
+      <div class="section-title">양돈 / 양계 / 오리용 제품</div>
+      <div class="section-desc">미네랄·비타민부터 소화효율·장건강·생산성까지 전체 12종</div>
+    </div>
+  </div>
+
+  <span class="cat-label">미네랄 · 비타민</span>
+  <div class="product-grid">
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/mineral-allq-gold.html" target="_blank">미네랄올큐 골드<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Mineral All-Q Gold</div>
+      <div class="card-feature">고함량 비타민A·D3에 주요 미량미네랄을 집약한 프리미엄 올인원 미네랄. 면역력 강화</div>
+      <div class="card-tags"><span class="tag green">전구간 급여</span><span class="tag green">면역력 강화</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>비타민A</td><td><strong>2,000,000 IU/kg 이상</strong></td></tr>
+          <tr><td>비타민D3</td><td><strong>400,000 IU/kg 이상</strong></td></tr>
+          <tr><td>비타민E</td><td>1,000 mg/kg 이상</td></tr>
+          <tr><td>망간(Mn)</td><td>8,500 mg/kg &nbsp;|&nbsp; 구리(Cu) 2,500 mg/kg</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/mineral-allq-gold.html" target="_blank">미네랄올큐<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Mineral All-Q</div>
+      <div class="card-feature">핵심 미량광물 + 비타민E 올인원 보강. 배합사료 내 미네랄 밸런스를 한번에 해결</div>
+      <div class="card-tags"><span class="tag green">올인원 보강</span><span class="tag green">급여 편의성</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>비타민E</td><td><strong>500 mg/kg 이상</strong></td></tr>
+          <tr><td>아연(Zn)</td><td>80,000 mg/kg 이상</td></tr>
+          <tr><td>망간(Mn)</td><td>54,000 mg/kg 이상</td></tr>
+          <tr><td>권장량</td><td>배합사료 톤당 0.1%</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/vita-allq.html" target="_blank">비타올큐<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Vita All-Q</div>
+      <div class="card-feature">비타민 A·D3·E 고함량 집중 공급. 면역·성장·항산화 기본기를 한번에 채워줍니다</div>
+      <div class="card-tags"><span class="tag green">자돈</span><span class="tag green">육성·비육돈</span><span class="tag green">산란계·육계</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>비타민A</td><td><strong>8,000,000 IU/kg</strong></td></tr>
+          <tr><td>비타민D3</td><td><strong>2,000,000 IU/kg</strong></td></tr>
+          <tr><td>비타민E</td><td><strong>30,000 mg/kg</strong></td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="cat-label blue">소화효소 · 성장개선</span>
+  <div class="product-grid">
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/energy-plus.html" target="_blank">에너지 플러스<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Energy Plus</div>
+      <div class="card-feature">피마자유 유래 고급 비이온계 유화제. 지방소화·성장·장건강 및 계란 품질 향상</div>
+      <div class="card-tags"><span class="tag blue">자돈</span><span class="tag blue">육계</span><span class="tag blue">산란계</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>용량</td><td>자돈·모돈·육계·산란계 350g / 사료톤당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/pre-yeastzyme.html" target="_blank">프리이스트자임<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Pre-yeastzyme</div>
+      <div class="card-feature">NSP효소+단백질효소+유기산+효모 복합제. 분변 SCORE 개선·단백질 소화율 향상</div>
+      <div class="card-tags"><span class="tag blue">자돈</span><span class="tag blue">육계</span><span class="tag blue">산란계</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>자돈·모돈</td><td>사료톤당 0.2%</td></tr>
+          <tr><td>육성비육돈</td><td>사료톤당 0.1%</td></tr>
+          <tr><td>육계·산란계</td><td>사료톤당 0.2%</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/enzyme-series.html" target="_blank">Thermostable Phytase (피타아제)<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Phytase 10,000 u/g</div>
+      <div class="card-feature">Aspergillus niger 균주 인분해 효소. 피틴산 분해율 60%↑, 무기태 인 대체. 85°C 고온에서도 안정</div>
+      <div class="card-tags"><span class="tag blue">육계</span><span class="tag blue">산란계</span><span class="tag blue">오리</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>육계</td><td>20~100g/톤 &nbsp;|&nbsp; 오리 50~100g/톤</td></tr>
+          <tr><td>비육돈·모돈</td><td>30~60g / 사료톤당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/enzyme-series.html" target="_blank">NSP ENZYME & PHYTASE<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">NSP Enzyme Lineup</div>
+      <div class="card-feature">알파아밀라제·베타만나아제·자이라나제·파이타제·셀룰라나제 등 전 라인업. 국내 최저가 공급</div>
+      <div class="card-tags"><span class="tag blue">전축종</span><span class="tag blue">사료효율</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>규격</td><td>25kg 파우더/그래뉼 &nbsp;|&nbsp; 부형제: 옥수수 전분</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/rumenpass-lysine.html" target="_blank">린텍스<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Lin Tex</div>
+      <div class="card-feature">Linseed 특허공법 오메가3 공급원. 번식성적 개선 및 사료효율 향상</div>
+      <div class="card-tags"><span class="tag green">모돈</span><span class="tag green">산란계</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>양돈</td><td>30~100g / 두 / 일</td></tr>
+          <tr><td>산란계·육계</td><td>5~20g / 수 / 일</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="cat-label blue">항균 · 항독소</span>
+  <div class="product-grid">
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/enzyme-series.html" target="_blank">GOD (글루코옥시데이즈)<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Glucose Oxidase 10,000U/g</div>
+      <div class="card-feature">Aspergillus niger·Penicillum 발효 항균·항톡신 효소제. 장건강 및 소화 활동 개선. 가장 경제적</div>
+      <div class="card-tags"><span class="tag blue">자돈</span><span class="tag blue">육계</span><span class="tag blue">산란계</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>용량</td><td>배합사료 톤당 0.03%</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca blue"></div>
+      <div class="card-name"><a href="products/amaril.html" target="_blank">AMARIL (아마릴)<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Amaril</div>
+      <div class="card-feature">계피추출물 6%↑ + 개미산 및 인산 복합. 항균·항산화·항박테리아 및 소화 활성화</div>
+      <div class="card-tags"><span class="tag blue">자돈</span><span class="tag blue">임신돈</span><span class="tag blue">육계·오리</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>자돈·임신돈</td><td>1,000g / 사료톤당</td></tr>
+          <tr><td>비육돈·육계</td><td>500g / 사료톤당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca gray"></div>
+      <div class="card-name"><a href="products/micofung.html" target="_blank">마이코펑<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Micofung®</div>
+      <div class="card-feature">천연 항진균제(감귤추출물+유기산). 곰팡이·박테리아·독소 복합억제, 장기 저장 안정성 우수</div>
+      <div class="card-tags"><span class="tag gray">항곰팡이</span><span class="tag gray">전단계</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>용량</td><td>250~2,000g / 사료톤당</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca gray"></div>
+      <div class="card-name"><a href="products/toxidex-primus.html" target="_blank">톡시덱스 프리머스<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Toxidex Primus®</div>
+      <div class="card-feature">DON·ZEN·Afla 광범위 독소 대응. 자돈·육계 어린가축에 특히 우수한 효과. 간보호+면역증강</div>
+      <div class="card-tags"><span class="tag gray">항독소</span><span class="tag gray">면역증강</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>자돈</td><td>0.5~2kg / 사료톤당</td></tr>
+          <tr><td>육계·산란계</td><td>500~1,000g / 사료톤당</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <span class="cat-label">기호성 · 환경개선</span>
+  <div class="product-grid">
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/yea-sacc.html" target="_blank">YEA-SACC (이섹)<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Yea-Sacc</div>
+      <div class="card-feature">고농축 효모. 모돈 비유량·변비 감소, 산란율 증가, 육계 성장률 촉진, 기호성 향상</div>
+      <div class="card-tags"><span class="tag green">모돈</span><span class="tag green">산란계</span><span class="tag green">육계</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>어린돼지</td><td>2kg/톤 &nbsp;|&nbsp; 이유자돈 1kg/톤 &nbsp;|&nbsp; 비육돈 0.25kg/톤</td></tr>
+          <tr><td>산란계·육계</td><td>1kg/톤</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/dried-molasses.html" target="_blank">건조당밀<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Dried Molasses</div>
+      <div class="card-feature">기호성·건강증진. 비타민·미네랄 프리믹스 부형제 및 발효제로도 활용 가능</div>
+      <div class="card-tags"><span class="tag green">기호성</span><span class="tag green">발효제</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분</td><td>조단백 9%↑ / Total sugar 40%↑</td></tr>
+          <tr><td>용량</td><td>사료톤당 0.5%</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="ca green"></div>
+      <div class="card-name"><a href="products/natural-composting.html" target="_blank">천연부숙제 (FB)<span class="link-icon">🔗</span></a></div>
+      <div class="card-name-en">Natural Composting Agent</div>
+      <div class="card-feature">25년 발효기술. 분변 질소 극소화·악취 저감·분뇨 부숙 시간 단축. 면역력 개선 및 스트레스 감소</div>
+      <div class="card-tags"><span class="tag green">악취저감</span><span class="tag green">환경개선</span></div>
+      <div class="card-spec">
+        <table class="spec-table">
+          <tr><td>성분</td><td>효모 2×10⁸ CFU/g, 바실러스 서브틸러스 3×10⁹ u/g</td></tr>
+          <tr><td>용량</td><td>양돈·오리·육계·산란계: 사료톤당 1~2kg</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <strong>(주)에프앤티바이오</strong><br>
+  서울특별시 송파구 올림픽로 336, 2107호<br>
+  📞 010-5269-1459 &nbsp;/&nbsp; 02-6498-3588 &nbsp;&nbsp;✉ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fa92c8ccc3cbcecfc3ba949b8c9f88d4999597">[email&#160;protected]</a><br>
+  https://blog.naver.com/fnt_bio<br><br>
+  <span style="opacity:0.45;font-size:0.78rem;">© 2025 FNT BIO Co., Ltd. All rights reserved.</span>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    d
