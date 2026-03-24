@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>루프로민 밸런스</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1a7838;--green-mid:#2a9848;--green-light:#e0f5e8;--green-pale:#f0fdf4;
+  --blue:#1a50a8;--blue-light:#e8f0fd;
+  --gold:#c89010;--gold-light:#fdf5d8;
+  --red:#b82020;
+  --dark:#081820;--gray:#3a5040;--gl:#d0e8d8;--white:#fff;--cream:#f4fdf6;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#98b8a0;display:flex;justify-content:center;padding:40px 20px;}
+.flyer{width:794px;background:var(--cream);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,0.28);}
+
+.hero{background:linear-gradient(135deg,#082018 0%,#1a6030 50%,#2a8840 100%);position:relative;overflow:hidden;padding:0;}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,0.05);}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:11px 36px;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;z-index:2;}
+.hbadge{background:var(--gold);color:#3a2000;font-size:10px;font-weight:800;padding:3px 12px;border-radius:2px;letter-spacing:.8px;}
+.hco{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;}
+.hbody{display:flex;min-height:215px;position:relative;z-index:2;}
+.hleft{flex:1;padding:30px 36px 34px;}
+.h-slogan{font-size:14px;font-weight:800;color:rgba(255,255,255,0.75);margin-bottom:10px;letter-spacing:-.3px;}
+.h-slogan em{color:#a0f870;font-style:normal;}
+.hname{font-size:52px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1.5px;margin-bottom:6px;}
+.hname em{color:#a0f870;font-style:normal;}
+.h-tagline{font-size:13.5px;color:rgba(255,255,255,0.78);line-height:1.65;border-left:4px solid #a0f870;padding-left:14px;margin-bottom:18px;}
+.h-tagline strong{color:#a0f870;}
+.hpills{display:flex;gap:7px;flex-wrap:wrap;}
+.hpill{background:rgba(160,248,112,0.12);border:1px solid rgba(160,248,112,0.3);color:#a0f870;font-size:11px;font-weight:700;padding:5px 13px;border-radius:20px;}
+.hright{width:200px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px 18px;}
+.rorb{width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#a0f870 0%,#2a7830 45%,#082018 100%);border:3px solid rgba(160,248,112,0.4);display:flex;align-items:center;justify-content:center;font-size:52px;box-shadow:0 10px 32px rgba(0,0,0,0.35);}
+.rorl{text-align:center;}
+.rorlm{font-size:13px;font-weight:800;color:#a0f870;}
+.rorls{font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:1.2px;margin-top:2px;}
+
+/* POWER BADGE */
+.power-badge{background:var(--green-mid);padding:16px 36px;display:flex;align-items:center;justify-content:center;gap:20px;}
+.pb-label{font-size:12px;color:rgba(255,255,255,0.7);font-weight:600;}
+.pb-val{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;color:#fff;margin:0 8px;}
+.pb-desc{font-size:13px;color:rgba(255,255,255,0.85);font-weight:700;}
+
+/* POINTS */
+.points-sec{background:var(--white);padding:28px 36px;}
+.sec-eye{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-tag{background:var(--dark);color:#a0f870;font-size:9px;font-weight:800;padding:4px 13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:var(--gl);}
+.points-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.point-card{background:var(--green-pale);border:1px solid var(--gl);padding:20px 18px;border-radius:6px;border-top:3px solid var(--green-mid);}
+.pc-badge{display:inline-flex;align-items:center;gap:6px;background:var(--green-mid);color:#fff;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;padding:4px 12px;border-radius:10px;margin-bottom:10px;}
+.pc-title{font-size:14px;font-weight:800;color:var(--green);margin-bottom:8px;line-height:1.3;}
+.pc-desc{font-size:12px;color:var(--gray);line-height:1.65;}
+.pc-desc em{color:var(--green);font-style:normal;font-weight:700;}
+
+/* RECOMMEND */
+.rec-sec{background:var(--green-light);padding:24px 36px;border-top:3px solid var(--green-mid);}
+.rec-sec .sec-tag{background:var(--green);color:#fff;}
+.rec-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
+.rec-card{background:var(--white);border:1.5px solid rgba(26,120,56,0.2);padding:16px 18px;border-radius:6px;display:flex;gap:12px;align-items:flex-start;}
+.rc-ico{font-size:24px;flex-shrink:0;}
+.rc-body{}
+.rc-title{font-size:13.5px;font-weight:800;color:var(--green);margin-bottom:5px;}
+.rc-desc{font-size:12px;color:var(--gray);line-height:1.6;}
+
+/* DOSAGE */
+.dose-sec{background:var(--dark);padding:26px 36px;}
+.dose-sec .sec-tag{background:var(--green-mid);color:#fff;}
+.dose-sec .sec-line{background:rgba(255,255,255,0.1);}
+.dose-inner{display:flex;gap:24px;margin-top:16px;align-items:stretch;}
+.dose-left{flex:1;}
+.dose-method{font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:12px;line-height:1.65;background:rgba(255,255,255,0.06);padding:12px 14px;border-radius:4px;}
+.dose-method strong{color:#a0f870;}
+.dose-rows{display:flex;flex-direction:column;gap:8px;}
+.dose-row{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.06);border-left:3px solid var(--green-mid);padding:10px 14px;border-radius:0 4px 4px 0;}
+.dr-label{font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:500;}
+.dr-val{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;color:#a0f870;}
+.dr-unit{font-size:10px;color:rgba(255,255,255,0.4);}
+.dose-right{width:220px;flex-shrink:0;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);padding:16px 16px;border-radius:4px;}
+.dr-title{font-size:11px;font-weight:700;color:#a0f870;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+.dr-note{font-size:12px;color:rgba(255,255,255,0.65);line-height:1.65;}
+.dr-note strong{color:#fff;}
+
+/* FOOTER */
+.footer{background:#050e0a;display:flex;overflow:hidden;}
+.ftl{flex:1;padding:20px 28px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.ft-lbl{font-size:10px;font-weight:700;color:#a0f870;letter-spacing:2px;text-transform:uppercase;}
+.ft-main{font-size:14px;font-weight:900;color:#fff;line-height:1.4;}
+.ft-cons{display:flex;gap:18px;margin-top:8px;}
+.fc{display:flex;flex-direction:column;gap:2px;}
+.fcl{font-size:8px;font-weight:700;letter-spacing:1.5px;color:#a0f870;text-transform:uppercase;}
+.fcv{font-size:11px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.ftr{width:175px;flex-shrink:0;background:var(--green-mid);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 14px;text-align:center;gap:3px;}
+.ftr-co{font-size:11px;color:rgba(255,255,255,0.65);}
+.ftr-main{font-size:18px;font-weight:900;color:#fff;}
+.ftr-tel{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#ffe060;margin-top:3px;}
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+<div class="hero">
+  <div class="htop">
+    <span class="hbadge">반추위 완충제 · (주)에프앤티바이오</span>
+    <span class="hco">Rupromin Balance</span>
+  </div>
+  <div class="hbody">
+    <div class="hleft">
+      <p class="h-slogan"><em>중조대비 2.6배</em> 더 강력한 버퍼 — 입닫음·식체·산증 해결</p>
+      <h1 class="hname">루프로민<em> 밸런스</em></h1>
+      <div class="h-tagline">
+        알칼리제와 버퍼제를 결합하여 <strong>pH를 즉시 높이고</strong> 중성화를 지속 유지.<br>
+        TMR, 건초, 배합사료, 사일리지 어디에나 첨가 가능.
+      </div>
+      <div class="hpills">
+        <span class="hpill">중조대비 2.6배 완충력</span>
+        <span class="hpill">알칼리제 + 버퍼제</span>
+        <span class="hpill">산증 예방</span>
+        <span class="hpill">산유량·유지방 개선</span>
+        <span class="hpill">분변 스코어 개선</span>
+      </div>
+    </div>
+    <div class="hright">
+      <div class="rorb">⚖️</div>
+      <div class="rorl">
+        <p class="rorlm">루프로민 밸런스</p>
+        <p class="rorls">Rupromin Balance</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="power-badge">
+  <p class="pb-label">중조 대비 완충력</p>
+  <p class="pb-val">2.6배</p>
+  <p class="pb-desc">더 강력한 버퍼 — 중조 40% 용량으로 동일 효과 달성</p>
+</div>
+
+<div class="points-sec">
+  <div class="sec-eye"><span class="sec-tag">제품 특징 — 3가지 핵심 포인트</span><div class="sec-line"></div></div>
+  <div class="points-grid">
+    <div class="point-card">
+      <span class="pc-badge">Point 1</span>
+      <p class="pc-title">알칼리제와 버퍼제의 조합</p>
+      <p class="pc-desc">알칼리제로 <em>먼저 pH를 빠르게 높이고</em>, 버퍼제가 산의 중성화를 지속 유지하여 반추위 환경을 안정적으로 관리합니다.</p>
+    </div>
+    <div class="point-card">
+      <span class="pc-badge">Point 2</span>
+      <p class="pc-title">사료 섭취량 증가</p>
+      <p class="pc-desc">반추위 pH 안정화로 <em>반추 활동이 정상화</em>되고 분변 스코어가 개선되어 사료 섭취량이 증가합니다.</p>
+    </div>
+    <div class="point-card">
+      <span class="pc-badge">Point 3</span>
+      <p class="pc-title">산유량·유지방 및 사료 효율 개선</p>
+      <p class="pc-desc">반추위 환경 최적화로 <em>산유량과 유지방이 개선</em>되고 전체 사료 효율이 향상됩니다.</p>
+    </div>
+  </div>
+</div>
+
+<div class="rec-sec">
+  <div class="sec-eye"><span class="sec-tag">추천 농가</span><div class="sec-line" style="background:rgba(42,152,72,0.2);"></div></div>
+  <div class="rec-cards">
+    <div class="rec-card">
+      <div class="rc-ico">🚪</div>
+      <div class="rc-body">
+        <p class="rc-title">입닫음, 식체로 고민하는 농가</p>
+        <p class="rc-desc">사료를 먹지 않거나 식체 증상이 반복되는 소가 있다면 반추위 pH 저하를 의심하세요. 루프로민 밸런스로 즉각 대응합니다.</p>
+      </div>
+    </div>
+    <div class="rec-card">
+      <div class="rc-ico">💪</div>
+      <div class="rc-body">
+        <p class="rc-title">중조보다 더 강력한 버퍼가 필요한 농가</p>
+        <p class="rc-desc">중조(탄산수소나트륨)를 써도 효과가 부족하다면 2.6배 강력한 루프로민 밸런스로 전환하세요. 40% 용량으로 동일 효과.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dose-sec">
+  <div class="sec-eye"><span class="sec-tag">급여 방법</span><div class="sec-line"></div></div>
+  <div class="dose-inner">
+    <div class="dose-left">
+      <div class="dose-method">
+        <strong>경제적인 방법:</strong> 현재 중조 사용량의 <strong>40% 사용</strong> (중조와 동일한 효과)<br>
+        <strong>강력한 완충(버퍼) 효과를 원할 경우:</strong> 권장급여량 적용
+      </div>
+      <div class="dose-rows">
+        <div class="dose-row">
+          <span class="dr-label">🐄 비육우</span>
+          <div><span class="dr-val">80~100</span><span class="dr-unit"> g / 두당 · 1일</span></div>
+        </div>
+        <div class="dose-row">
+          <span class="dr-label">🥛 착유우</span>
+          <div><span class="dr-val">100~200</span><span class="dr-unit"> g / 두당 · 1일</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="dose-right">
+      <p class="dr-title">📌 첨가 방법</p>
+      <p class="dr-note">
+        <strong>TMR, 건초, 배합사료, 사일리지 등</strong> 어디에나 첨가 가능합니다.<br><br>
+        급여 시기: 고농축 사료 급여 시, 분만 전후, 비유 피크기, 고온기에 집중 급여 권장.<br><br>
+        중조 대비 용량을 줄여 사용하므로 <strong>사료비 절감 효과</strong>가 있습니다.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="ftl">
+    <p class="ft-lbl">상담 및 주문</p>
+    <p class="ft-main">루프로민 밸런스 — 중조대비 2.6배 강력한 버퍼<br>입닫음·식체·산증을 해결하는 최강 완충제</p>
+    <div class="ft-cons">
+      <div class="fc"><span class="fcl">Company</span><span class="fcv">(주)에프앤티바이오</span></div>
+      <div class="fc"><span class="fcl">Address</span><span class="fcv">서울 송파구 올림픽로 336, 2107호</span></div>
+      <div class="fc"><span class="fcl">Tel</span><span class="fcv">010-5269-1459</span></div>
+    </div>
+  </div>
+  <div class="ftr">
+    <p class="ftr-co">에프앤티바이오</p>
+    <p class="ftr-main">즉시<br>상담</p>
+    <p class="ftr-tel">010-5269-1459</p>
+  </div>
+</div>
+</div>
+</body>
+</html>

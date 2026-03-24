@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Micofung® 항곰팡이제</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1a7a2a;--green-mid:#2a9a3a;--green-light:#e8f7ec;--green-pale:#f4fbf6;
+  --yellow:#d4b800;--yellow-light:#fdf9e0;
+  --red:#c0281e;--red-light:#fdf0ee;
+  --dark:#1a2218;--gray:#556055;--gray-light:#e8ede8;--white:#fff;--cream:#f8fbf8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#c8d4c0;display:flex;justify-content:center;padding:40px 20px;}
+.flyer{width:794px;background:var(--cream);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,0.28);}
+
+.hero{background:linear-gradient(135deg,#0a3a12 0%,#1a6a28 55%,#2a8a40 100%);padding:0;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;right:-60px;top:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.05);}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:12px 36px;border-bottom:1px solid rgba(255,255,255,0.12);position:relative;z-index:2;}
+.hbadge{background:var(--yellow);color:#3a2800;font-size:10px;font-weight:800;padding:3px 12px;border-radius:2px;letter-spacing:.8px;}
+.hco{font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:1px;}
+.hbody{display:flex;min-height:210px;position:relative;z-index:2;}
+.hleft{flex:1;padding:30px 36px 34px;}
+.h-alarm{font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:8px;font-weight:600;}
+.h-alarm span{color:#ffdd55;}
+.hname{font-family:'Montserrat',sans-serif;font-size:56px;font-weight:900;color:#fff;line-height:1;margin-bottom:4px;letter-spacing:-1px;}
+.hname sup{font-size:22px;color:#aad860;}
+.htagline{font-size:13px;color:rgba(255,255,255,0.6);font-style:italic;margin-bottom:18px;line-height:1.5;}
+.htagline strong{color:#d0f080;}
+.hpills{display:flex;gap:7px;flex-wrap:wrap;}
+.hpill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.28);color:#fff;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;}
+.hright{width:200px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 18px;}
+.morb{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#80d860 0%,#2a8a30 45%,#0a3a10 100%);border:3px solid rgba(255,255,255,0.28);display:flex;align-items:center;justify-content:center;font-size:46px;box-shadow:0 10px 32px rgba(0,0,0,0.35);}
+.morl{text-align:center;}
+.morlm{font-size:12px;font-weight:800;color:#d0f080;letter-spacing:.5px;}
+.morls{font-size:9px;color:rgba(255,255,255,0.38);letter-spacing:1.2px;margin-top:2px;}
+
+/* DANGER STRIP */
+.danger-strip{background:#c0281e;display:flex;align-items:center;padding:14px 36px;gap:16px;}
+.ds-icon{font-size:22px;flex-shrink:0;}
+.ds-title{font-size:14px;font-weight:900;color:#fff;}
+.ds-subs{display:flex;gap:16px;margin-top:3px;}
+.ds-sub{font-size:11.5px;color:rgba(255,255,255,0.82);display:flex;align-items:center;gap:6px;}
+.ds-sub::before{content:'⊖';color:#ffaa88;font-size:13px;}
+
+/* RISK */
+.risk-sec{background:var(--white);padding:30px 36px;}
+.sec-eye{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-tag{background:var(--dark);color:#d0f080;font-size:9px;font-weight:800;padding:4px 13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:var(--gray-light);}
+.risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.risk-card{background:var(--red-light);border:1px solid #f0c0bc;padding:18px 16px;border-radius:6px;border-top:3px solid var(--red);}
+.rc-icon{font-size:24px;margin-bottom:9px;}
+.rc-title{font-size:13px;font-weight:800;color:var(--red);margin-bottom:7px;}
+.rc-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.rc-list li{font-size:12px;color:#553030;display:flex;align-items:baseline;gap:7px;line-height:1.5;}
+.rc-list li::before{content:'•';color:var(--red);font-weight:900;flex-shrink:0;}
+
+/* FEATURES */
+.feat-sec{background:var(--green-pale);padding:30px 36px;}
+.feat-sec .sec-tag{background:var(--green);color:#fff;}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.feat-card{background:var(--white);border:1px solid #c8e8cc;padding:18px 18px;border-radius:6px;display:flex;gap:14px;align-items:flex-start;}
+.fc-ico{width:42px;height:42px;background:var(--green-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.fc-body{}
+.fc-title{font-size:13.5px;font-weight:800;color:var(--green);margin-bottom:6px;}
+.fc-desc{font-size:12px;color:var(--gray);line-height:1.65;}
+.fc-desc em{color:var(--green);font-style:normal;font-weight:700;}
+
+/* COMPARE TABLE */
+.cmp-sec{background:var(--white);padding:30px 36px;border-top:3px solid var(--green-mid);}
+.cmp-sec .sec-tag{background:var(--green);color:#fff;}
+.cmp-table{width:100%;border-collapse:collapse;margin-top:18px;}
+.cmp-table th{padding:10px 16px;font-size:11px;font-weight:700;text-align:center;letter-spacing:.5px;}
+.cmp-table th:first-child{background:var(--dark);color:rgba(255,255,255,0.7);text-align:left;}
+.cmp-table th:nth-child(2){background:#e8e0d0;color:#6a5830;}
+.cmp-table th:nth-child(3){background:var(--green);color:#fff;}
+.cmp-table td{padding:9px 16px;font-size:12.5px;border-bottom:1px solid var(--gray-light);text-align:center;color:var(--dark);}
+.cmp-table td:first-child{font-weight:600;text-align:left;background:var(--green-pale);}
+.cmp-table td:nth-child(2){color:#888;background:#fafaf6;}
+.cmp-table td:nth-child(3){color:var(--green);font-weight:700;background:var(--green-pale);}
+.cmp-table tr:last-child td{border-bottom:none;}
+
+/* DOSAGE */
+.dose-sec{background:var(--green-light);padding:26px 36px;display:flex;align-items:center;justify-content:space-between;gap:28px;}
+.dose-left{}
+.dose-title{font-size:16px;font-weight:800;color:var(--green);margin-bottom:8px;}
+.dose-val{font-size:28px;font-weight:900;font-family:'Montserrat',sans-serif;color:var(--dark);}
+.dose-unit{font-size:13px;color:var(--gray);margin-top:4px;}
+.dose-note{font-size:12px;color:var(--gray);line-height:1.6;max-width:400px;background:var(--white);border:1px solid #c8e8cc;padding:14px 18px;border-radius:6px;}
+.dose-note strong{color:var(--green);}
+
+/* FOOTER */
+.footer{background:var(--dark);display:flex;overflow:hidden;}
+.ft-left{flex:1;padding:22px 28px;display:flex;flex-direction:column;justify-content:center;gap:5px;}
+.ft-label{font-size:10px;font-weight:700;color:#d0f080;letter-spacing:2px;text-transform:uppercase;}
+.ft-main{font-size:15px;font-weight:900;color:#fff;line-height:1.4;}
+.ft-contacts{display:flex;gap:20px;margin-top:10px;}
+.fc{display:flex;flex-direction:column;gap:2px;}
+.fc-l{font-size:8.5px;font-weight:700;letter-spacing:1.5px;color:#80d860;text-transform:uppercase;}
+.fc-v{font-size:11.5px;color:rgba(255,255,255,0.75);line-height:1.5;}
+.ft-right{width:180px;flex-shrink:0;background:var(--green-mid);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 16px;text-align:center;gap:4px;}
+.ftr-top{font-size:10px;color:rgba(255,255,255,0.6);font-weight:600;}
+.ftr-mfr{font-size:12px;font-weight:700;color:#d0f080;}
+.ftr-main{font-size:18px;font-weight:900;color:#fff;line-height:1.2;}
+.ftr-tel{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#ffdd55;margin-top:4px;}
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+  <div class="hero">
+    <div class="htop">
+      <span class="hbadge">제조: ORFFA · 수입판매원 에프앤티바이오</span>
+      <span class="hco">FNT BIO CO., LTD.</span>
+    </div>
+    <div class="hbody">
+      <div class="hleft">
+        <p class="h-alarm">곰팡이 오염, 사료 품질의 침묵하는 적! <span>원천 차단</span></p>
+        <h1 class="hname">Micofung<sup>®</sup></h1>
+        <p class="htagline">"천연 시트러스 성분 + 유기산 복합 <strong>→ 안전하고 강력한 항곰팡이 솔루션</strong>"</p>
+        <div class="hpills">
+          <span class="hpill">천연 유래 성분</span>
+          <span class="hpill">장기 지속 효과</span>
+          <span class="hpill">설비 부식 없음</span>
+          <span class="hpill">마이코톡신 예방</span>
+          <span class="hpill">25KG/포</span>
+        </div>
+      </div>
+      <div class="hright">
+        <div class="morb">🌿</div>
+        <div class="morl">
+          <p class="morlm">Micofung®</p>
+          <p class="morls">Anti-fungal Solution</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="danger-strip">
+    <div class="ds-icon">⚠️</div>
+    <div>
+      <p class="ds-title">사료 곰팡이 오염의 3가지 위험</p>
+      <div class="ds-subs">
+        <span class="ds-sub">건강 악화: 마이코톡신 중독·설사</span>
+        <span class="ds-sub">영양 손실: 향·맛 저하·영양가 감소</span>
+        <span class="ds-sub">생산 손실: 보관 중 부패·기계 고장</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-sec">
+    <div class="sec-eye">
+      <span class="sec-tag">곰팡이 오염의 피해</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="risk-grid">
+      <div class="risk-card">
+        <div class="rc-icon">😷</div>
+        <p class="rc-title">건강 악화</p>
+        <ul class="rc-list">
+          <li>마이코톡신 중독으로 면역 저하</li>
+          <li>식욕 저하 및 성장 정체</li>
+          <li>설사·소화기 질환 유발</li>
+        </ul>
+      </div>
+      <div class="risk-card">
+        <div class="rc-icon">📉</div>
+        <p class="rc-title">영양 손실</p>
+        <ul class="rc-list">
+          <li>사료의 향·맛 저하로 기호성 감소</li>
+          <li>영양가 파괴 및 손실</li>
+          <li>사료 효율 저하 → 비용 증가</li>
+        </ul>
+      </div>
+      <div class="risk-card">
+        <div class="rc-icon">🏭</div>
+        <p class="rc-title">생산 손실</p>
+        <ul class="rc-list">
+          <li>보관 중 부패·변질 손실</li>
+          <li>먼지·포자 발생으로 작업 환경 악화</li>
+          <li>배관·기계 부식 및 고장</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="feat-sec">
+    <div class="sec-eye">
+      <span class="sec-tag">제품 특징</span>
+      <div class="sec-line" style="background:rgba(42,154,58,0.2);"></div>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="fc-ico">🍋</div>
+        <div class="fc-body">
+          <p class="fc-title">천연 유래 성분 — 감귤씨 추출물 + 유기산</p>
+          <p class="fc-desc">합성 방부제 없이 <em>천연 시트러스 추출물</em>과 유기산 복합 처방으로 안전하고 강력한 항곰팡이 작용을 발휘합니다.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="fc-ico">⏳</div>
+        <div class="fc-body">
+          <p class="fc-title">장기 지속 효과 — 휘발성 낮음</p>
+          <p class="fc-desc">기존 프로피온산 계열 대비 <em>휘발성이 매우 낮아</em> 장기간 항곰팡이 효과가 안정적으로 유지됩니다.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="fc-ico">🔧</div>
+        <div class="fc-body">
+          <p class="fc-title">부식성 낮음 — 설비 안전</p>
+          <p class="fc-desc">취급이 쉽고 <em>설비 부식 걱정이 없어</em> 기존 액상 제품 대비 작업자 및 기계 보호 측면에서 탁월합니다.</p>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="fc-ico">🚫</div>
+        <div class="fc-body">
+          <p class="fc-title">마이코톡신 생성 예방</p>
+          <p class="fc-desc">곰팡이 성장을 억제제로 <em>독소(마이코톡신) 생성을 원천 차단</em>하여 가축 건강과 사료 품질을 동시에 지킵니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cmp-sec">
+    <div class="sec-eye">
+      <span class="sec-tag">기능 비교 — Micofung® vs 기존 항곰팡이제</span>
+      <div class="sec-line"></div>
+    </div>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>비교항목</th>
+          <th>기존제품 (프로피온산)</th>
+          <th>Micofung®</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>주성분</td><td>프로피온산 단일</td><td>유기산 + 감귤씨 복합</td></tr>
+        <tr><td>휘발성</td><td>높음</td><td>낮음 (장기 유지)</td></tr>
+        <tr><td>유지 기간</td><td>짧음</td><td>장기 지속</td></tr>
+        <tr><td>설비 부식</td><td>있음</td><td>거의 없음</td></tr>
+        <tr><td>항균력</td><td>제한적</td><td>100배 이상 향상 (in vitro 기준)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dose-sec">
+    <div class="dose-left">
+      <p class="dose-title">📦 용법 및 용량</p>
+      <p class="dose-val">250 ~ 2,000</p>
+      <p class="dose-unit">g / MT (사료 메트릭톤 기준)</p>
+    </div>
+    <div class="dose-note">
+      <strong>📌 적용 가이드</strong><br>
+      사료 오염 수준 및 보관 환경에 따라 급여량을 조정하십시오.<br>
+      고온·다습 환경이나 장기 보관 시 상한 용량(2,000g/MT)을 권장합니다.<br>
+      구체적인 용량은 기술상담 후 결정하시기 바랍니다.
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="ft-left">
+      <p class="ft-label">상담 및 주문</p>
+      <p class="ft-main">천연 항곰팡이 솔루션 Micofung®<br>사료 품질과 가축 건강을 동시에 지킵니다</p>
+      <div class="ft-contacts">
+        <div class="fc"><span class="fc-l">제조</span><span class="fc-v">ORFFA (네덜란드)</span></div>
+        <div class="fc"><span class="fc-l">수입판매</span><span class="fc-v">(주)에프앤티바이오</span></div>
+        <div class="fc"><span class="fc-l">Email</span><span class="fc-v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="54323a200b363d3b143a352231267a373b39">[email&#160;protected]</a></span></div>
+      </div>
+    </div>
+    <div class="ft-right">
+      <p class="ftr-top">상담 및 주문</p>
+      <p class="ftr-mfr">에프앤티바이오</p>
+      <p class="f

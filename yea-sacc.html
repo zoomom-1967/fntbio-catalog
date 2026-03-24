@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>이섹 YEA-SACC</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --olive:#4a7020;--olive-mid:#6a9830;--olive-light:#e8f0d8;--olive-pale:#f5f8f0;
+  --brown:#5a3010;--brown-mid:#7a4818;
+  --gold:#c89010;--gold-light:#fdf5d8;
+  --dark:#141e08;--gray:#4a5a3a;--gl:#dde8cc;--white:#fff;--cream:#f8faf4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#b0bc98;display:flex;justify-content:center;padding:40px 20px;}
+.flyer{width:794px;background:var(--cream);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,0.28);}
+
+.hero{background:linear-gradient(135deg,#1a3008 0%,#3a6818 55%,#5a8828 100%);position:relative;overflow:hidden;padding:0;}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,0.05);}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:11px 36px;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;z-index:2;}
+.hbadge{background:var(--gold);color:#3a2000;font-size:10px;font-weight:800;padding:3px 12px;border-radius:2px;letter-spacing:.8px;}
+.hco{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;}
+.hbody{display:flex;min-height:210px;position:relative;z-index:2;}
+.hleft{flex:1;padding:30px 36px 34px;}
+.h-kicker{font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:2px;margin-bottom:8px;}
+.hname{font-size:52px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1.5px;margin-bottom:4px;}
+.hname em{color:#c8f060;font-style:normal;}
+.heng{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:900;color:rgba(255,255,255,0.55);letter-spacing:3px;margin-bottom:14px;}
+.h-tagline{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.65;margin-bottom:18px;}
+.h-tagline strong{color:#c8f060;}
+.hpills{display:flex;gap:7px;flex-wrap:wrap;}
+.hpill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;}
+.hright{width:195px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 18px;}
+.yorb{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#c0f080 0%,#4a8820 45%,#1a3808 100%);border:3px solid rgba(200,240,96,0.4);display:flex;align-items:center;justify-content:center;font-size:48px;box-shadow:0 10px 32px rgba(0,0,0,0.35);}
+.yorl{text-align:center;}
+.yorlm{font-size:12px;font-weight:800;color:#c8f060;letter-spacing:.5px;}
+.yorls{font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;margin-top:2px;}
+
+/* BENEFIT STRIP */
+.bene-strip{background:#1a3010;display:flex;}
+.bs-item{flex:1;padding:14px 12px;text-align:center;border-right:1px solid rgba(255,255,255,0.1);}
+.bs-item:last-child{border-right:none;}
+.bs-icon{font-size:20px;margin-bottom:5px;}
+.bs-title{font-size:12px;font-weight:800;color:#c8f060;margin-bottom:2px;line-height:1.3;}
+.bs-desc{font-size:10px;color:rgba(255,255,255,0.55);line-height:1.4;}
+
+/* DATA SECTION */
+.data-sec{background:var(--white);padding:28px 36px;}
+.sec-eye{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-tag{background:var(--dark);color:#c8f060;font-size:9px;font-weight:800;padding:4px 13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:var(--gl);}
+
+.data-tables{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.data-table-wrap{background:var(--olive-pale);border:1.5px solid var(--gl);border-radius:6px;overflow:hidden;}
+.dt-title{background:var(--olive);color:#fff;font-size:12px;font-weight:700;padding:8px 14px;letter-spacing:.5px;}
+.dt-table{width:100%;border-collapse:collapse;}
+.dt-table th{background:rgba(74,112,32,0.15);color:var(--dark);font-size:10.5px;font-weight:700;padding:7px 12px;text-align:center;letter-spacing:.3px;}
+.dt-table th:first-child{text-align:left;}
+.dt-table td{padding:8px 12px;font-size:12px;color:var(--dark);border-bottom:1px solid var(--gl);text-align:center;}
+.dt-table td:first-child{font-weight:600;text-align:left;}
+.dt-table tr:last-child td{border-bottom:none;}
+.dt-table td.highlight{font-weight:800;color:var(--olive);background:var(--olive-light);}
+.dt-table td.note{font-size:10px;color:var(--gray);font-style:italic;}
+
+/* FULL TABLES */
+.full-data{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;}
+
+/* FOOTER */
+.footer{background:var(--dark);display:flex;overflow:hidden;}
+.ftl{flex:1;padding:20px 28px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.ft-lbl{font-size:10px;font-weight:700;color:#c8f060;letter-spacing:2px;text-transform:uppercase;}
+.ft-main{font-size:14px;font-weight:900;color:#fff;line-height:1.4;}
+.ft-cons{display:flex;gap:18px;margin-top:8px;}
+.fc{display:flex;flex-direction:column;gap:2px;}
+.fcl{font-size:8px;font-weight:700;letter-spacing:1.5px;color:#c8f060;text-transform:uppercase;}
+.fcv{font-size:11px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.ftr{width:175px;flex-shrink:0;background:var(--olive-mid);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 14px;text-align:center;gap:3px;}
+.ftr-co{font-size:11px;color:rgba(255,255,255,0.65);}
+.ftr-main{font-size:18px;font-weight:900;color:#fff;line-height:1.1;}
+.ftr-tel{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#ffe060;margin-top:3px;}
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+<div class="hero">
+  <div class="htop">
+    <span class="hbadge">주식회사 에프앤티바이오 · 에프앤티컨설팅</span>
+    <span class="hco">FNT BIO CO., LTD.</span>
+  </div>
+  <div class="hbody">
+    <div class="hleft">
+      <p class="h-kicker">살아있는 활성효모 · Live Active Yeast</p>
+      <h1 class="hname"><em>이섹</em></h1>
+      <p class="heng">YEA-SACC</p>
+      <p class="h-tagline">
+        반추위 환경을 개선하고 소화율을 높이는 <strong>살아있는 활성효모</strong>.<br>
+        BMS·등심단면적·사료요구율을 과학적으로 입증된 데이터로 개선합니다.
+      </p>
+      <div class="hpills">
+        <span class="hpill">살아있는 활성효모</span>
+        <span class="hpill">소화 촉진</span>
+        <span class="hpill">반추위 혐기성균 증가</span>
+        <span class="hpill">BMS 개선</span>
+        <span class="hpill">등심단면적 확대</span>
+      </div>
+    </div>
+    <div class="hright">
+      <div class="yorb">🦠</div>
+      <div class="yorl">
+        <p class="yorlm">YEA-SACC</p>
+        <p class="yorls">Live Active Yeast</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bene-strip">
+  <div class="bs-item"><div class="bs-icon">🔬</div><p class="bs-title">급여사료 소화촉진</p><p class="bs-desc">소화율 37.5→73.21%</p></div>
+  <div class="bs-item"><div class="bs-icon">🦠</div><p class="bs-title">반추위 혐기성균 증가</p><p class="bs-desc">반추위 환경 개선</p></div>
+  <div class="bs-item"><div class="bs-icon">📈</div><p class="bs-title">일당증체량·섭취량 개선</p><p class="bs-desc">사료요구율 향상</p></div>
+  <div class="bs-item"><div class="bs-icon">🥩</div><p class="bs-title">BMS·등심단면적 향상</p><p class="bs-desc">A5 등급률 100%</p></div>
+</div>
+
+<div class="data-sec">
+  <div class="sec-eye"><span class="sec-tag">과학적 근거 — 시험 데이터</span><div class="sec-line"></div></div>
+
+  <div class="data-tables">
+    <div class="data-table-wrap">
+      <p class="dt-title">📊 다이제스천 분석기 실험 (소화잔류물)</p>
+      <table class="dt-table">
+        <thead><tr><th>구분</th><th>대조구</th><th>시험구</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>비율(%)</td>
+            <td>37.5</td>
+            <td class="highlight">73.21</td>
+            <td class="note">50% 이상 권장</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="data-table-wrap">
+      <p class="dt-title">📊 사료요구율</p>
+      <table class="dt-table">
+        <thead><tr><th>구분</th><th>대조구</th><th>시험구</th></tr></thead>
+        <tbody>
+          <tr><td>사료요구율</td><td>9.62</td><td class="highlight">8.90</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="full-data">
+    <div class="data-table-wrap">
+      <p class="dt-title">🥩 지육평가 (BMS·등심단면적)</p>
+      <table class="dt-table">
+        <thead><tr><th>구분</th><th>대조구</th><th>시험구</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td>BMS</td><td>8.50</td><td class="highlight">10.75</td><td></td></tr>
+          <tr><td>등심단면적(㎠)</td><td>95.90</td><td class="highlight">131.00</td><td></td></tr>
+          <tr><td>피하지방</td><td>3.90</td><td class="highlight">2.38</td><td></td></tr>
+          <tr><td>상물율(%)</td><td>50</td><td class="highlight">100</td><td class="note">A5 등급률</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="data-table-wrap">
+      <p class="dt-title">🦠 루멘 및 분의 총 혐기성균수</p>
+      <table class="dt-table">
+        <thead><tr><th>구분</th><th>대조구(n=4)</th><th>시험구(n=8)</th></tr></thead>
+        <tbody>
+          <tr><td>비율(%)</td><td>160±0</td><td class="highlight">1142±482</td></tr>
+          <tr><td>분중 총 혐기성균수</td><td>14100±8361</td><td class="highlight">30700±18277</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="ftl">
+    <p class="ft-lbl">문의 및 상담</p>
+    <p class="ft-main">살아있는 활성효모 이섹(YEA-SACC)<br>데이터로 증명된 소화율·육질 개선 솔루션</p>
+    <div class="ft-cons">
+      <div class="fc"><span class="fcl">Company</span><span class="fcv">주식회사 에프앤티바이오</span></div>
+      <div class="fc"><span class="fcl">Address</span><span class="fcv">서울특별시 송파구 올림픽로 336, 2107호</span></div>
+      <div class="fc"><span class="fcl">Contact</span><span class="fcv">TEL 02-6498-3588 / 010-5269-1459<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="731b41454a4247464a331d120516015d101c1e">[email&#160;protected]</a></span></div>
+    </div>
+  </div>
+  <div class="ftr">
+    <p class="ftr-co">에프앤티바이오</p>
+    <

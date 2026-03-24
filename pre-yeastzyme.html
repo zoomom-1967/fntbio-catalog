@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>프리이스트자임 FB - 리뉴얼 전단지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1a4a2e;
+    --green-mid: #2d7a4f;
+    --green-bright: #3cb371;
+    --green-light: #7ec8a0;
+    --amber: #e8a020;
+    --amber-light: #f5c842;
+    --cream: #faf7f0;
+    --white: #ffffff;
+    --charcoal: #1c1c1c;
+    --gray: #6b7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #e8e4da;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .flyer {
+    width: 794px;
+    background: var(--cream);
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+    position: relative;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--green-deep);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(60,179,113,0.1);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .badge {
+    background: var(--amber);
+    color: var(--charcoal);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .product-no {
+    color: rgba(255,255,255,0.45);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .company-name-top {
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .header-main {
+    padding: 36px 40px 40px;
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-text { flex: 1; }
+
+  .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--green-light);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .product-title {
+    font-size: 58px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 6px;
+  }
+
+  .product-title span {
+    color: var(--amber-light);
+  }
+
+  .product-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+  }
+
+  .header-tagline {
+    font-size: 17px;
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1.6;
+    padding: 16px 20px;
+    border-left: 3px solid var(--amber);
+    background: rgba(255,255,255,0.06);
+    max-width: 420px;
+  }
+
+  .header-tagline strong {
+    color: var(--amber-light);
+  }
+
+  .header-visual {
+    width: 160px;
+    flex-shrink: 0;
+    text-align: center;
+    padding-bottom: 8px;
+  }
+
+  .product-bag-icon {
+    width: 140px;
+    height: 170px;
+    background: linear-gradient(145deg, #2d7a4f, #1a4a2e);
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 2px 8px rgba(255,255,255,0.1), 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .product-bag-icon::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 40%;
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px 12px 0 0;
+  }
+
+  .bag-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--amber-light);
+    letter-spacing: 1px;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .bag-sublabel {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+    z-index: 1;
+  }
+
+  .bag-icons {
+    display: flex;
+    gap: 4px;
+    margin-top: 12px;
+    z-index: 1;
+  }
+
+  .animal-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  /* ── PROBLEM SECTION ── */
+  .problem-section {
+    background: var(--white);
+    padding: 36px 40px;
+    border-bottom: 3px solid var(--green-bright);
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .section-label-tag {
+    background: var(--green-deep);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .section-label-line {
+    flex: 1;
+    height: 1px;
+    background: #e5e7eb;
+  }
+
+  .problem-q {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--charcoal);
+    background: #f0fdf4;
+    border: 1.5px solid #bbf7d0;
+    padding: 18px 24px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 52px;
+  }
+
+  .problem-q::before {
+    content: 'Q';
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--green-mid);
+  }
+
+  .answer-box {
+    background: var(--green-deep);
+    color: white;
+    padding: 20px 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .answer-box .a-mark {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--amber-light);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .answer-box p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .answer-box strong {
+    color: var(--amber-light);
+    font-weight: 700;
+  }
+
+  /* ── FEATURES ── */
+  .features-section {
+    padding: 40px 40px 36px;
+    background: var(--cream);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .feature-card {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    padding: 22px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--green-bright);
+  }
+
+  .feature-card.amber::before { background: var(--amber); }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    background: #f0fdf4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .feature-card.amber .feature-icon {
+    background: #fffbeb;
+  }
+
+  .feature-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .feature-desc {
+    font-size: 12.5px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .feature-desc em {
+    color: var(--green-mid);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .enzymes-card {
+    grid-column: span 2;
+    background: var(--green-deep);
+    color: white;
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .enzymes-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--amber-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-right: 8px;
+  }
+
+  .enzymes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .enzyme-tag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.85);
+    font-size: 11.5px;
+    padding: 4px 10px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RESULTS SECTION ── */
+  .results-section {
+    background: var(--green-deep);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .results-section::before {
+    content: '30';
+    position: absolute;
+    right: -20px; top: -30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 220px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .results-section .section-label-tag {
+    background: var(--amber);
+    color: var(--charcoal);
+  }
+
+  .results-heading {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--white);
+    margin: 16px 0 28px;
+    line-height: 1.3;
+  }
+
+  .results-heading span { color: var(--amber-light); }
+
+  .results-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .result-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 18px 24px;
+    position: relative;
+  }
+
+  .result-num {
+    width: 36px;
+    height: 36px;
+    background: var(--amber);
+    color: var(--charcoal);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .result-text {
+    flex: 1;
+  }
+
+  .result-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .result-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .result-arrow {
+    font-size: 22px;
+    color: var(--amber-light);
+    font-weight: 700;
+  }
+
+  /* ── EFFECT CHAIN ── */
+  .effect-chain {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-top: 36px;
+  }
+
+  .effect-step {
+    flex: 1;
+    background: rgba(255,255,255,0.08);
+    padding: 18px 16px;
+    text-align: center;
+    position: relative;
+  }
+
+  .effect-step::after {
+    content: '▶';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--amber);
+    font-size: 14px;
+    z-index: 2;
+  }
+
+  .effect-step:last-child::after { display: none; }
+
+  .effect-step-label {
+    font-size: 10px;
+    color: var(--amber-light);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .effect-step-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section {
+    display: flex;
+    background: var(--white);
+  }
+
+  .pricing-main {
+    flex: 1;
+    padding: 36px 36px 36px 40px;
+    border-right: 2px solid var(--cream);
+  }
+
+  .pricing-tag {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--charcoal);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .pricing-amount {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--green-deep);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .pricing-amount span {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gray);
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .pricing-note {
+    font-size: 13.5px;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .pricing-benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pricing-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+
+  .pricing-benefits li::before {
+    content: '✓';
+    width: 20px;
+    height: 20px;
+    background: var(--green-mid);
+    color: white;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .pricing-usage {
+    flex: 0 0 220px;
+    background: var(--green-deep);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .usage-icon { font-size: 36px; margin-bottom: 16px; }
+
+  .usage-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .usage-amount {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--amber-light);
+    line-height: 1;
+  }
+
+  .usage-unit {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+    margin-bottom: 20px;
+  }
+
+  .usage-badge {
+    background: var(--amber);
+    color: var(--charcoal);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 8px 16px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--charcoal);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    flex-shrink: 0;
+  }
+
+  .footer-brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .footer-brand-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 3px;
+  }
+
+  .footer-contact {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .contact-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--amber-light);
+    text-transform: uppercase;
+  }
+
+  .contact-value {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .footer-cta {
+    background: var(--amber);
+    color: var(--charcoal);
+    padding: 14px 22px;
+    font-weight: 700;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+
+  /* ── 인쇄용 ── */
+  @media print {
+    body { background: none; padding: 0; }
+    .flyer { box-shadow: none; }
+  }
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+
+<div class="flyer">
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <div class="header-top">
+      <div class="badge-row">
+        <div class="badge">조달청 등록제품</div>
+        <span class="product-no">물품식별번호 25872946</span>
+      </div>
+      <span class="company-name-top">(주)에프앤티바이오</span>
+    </div>
+    <div class="header-main">
+      <div class="header-text">
+        <p class="eyebrow">Fermented &amp; Enzyme Synergy Feed Additive</p>
+        <h1 class="product-title">프리이스트자임<span> FB</span></h1>
+        <p class="product-subtitle">FREEYEAST ZYME FB</p>
+        <div class="header-tagline">
+          TMR 발효 후 동결건조한 <strong>고초균·효모균</strong>을 추가 혼합하여<br>
+          가축의 <strong>영양소 이용율</strong>과 <strong>발효사료 품질</strong>을 한층 높인<br>
+          <strong>프리미엄 복합 효소제</strong>
+        </div>
+      </div>
+      <div class="header-visual">
+        <div class="product-bag-icon">
+          <p class="bag-label">프리이스트자임</p>
+          <p class="bag-label" style="font-size:18px; margin-top:4px;">FB</p>
+          <p class="bag-sublabel">Feed Additive</p>
+          <div class="bag-icons">
+            <div class="animal-icon">🐄</div>
+            <div class="animal-icon">🐖</div>
+            <div class="animal-icon">🐔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROBLEM / SOLUTION ── -->
+  <div class="problem-section">
+    <div class="section-label">
+      <span class="section-label-tag">현장의 고민</span>
+      <div class="section-label-line"></div>
+    </div>
+    <div class="problem-q">
+      열심히 발효했는데, 효모균과 고초균 수는 왜 적을까?
+    </div>
+    <div class="answer-box">
+      <div class="a-mark">A</div>
+      <p>
+        유산균, 효모균, 고초균은 각각 <strong>생육 조건이 다릅니다.</strong><br>
+        TMR 발효 과정에서는 유산균이 우세해지면서 효모균·고초균 수가 자연히 줄어듭니다.<br>
+        <strong>프리이스트자임 FB</strong>는 발효 후 동결건조한 분말 형태의 고초균·효모균을 추가로 혼합해<br>
+        균 밸런스를 맞추고, 가축의 소화흡수율을 극대화합니다.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── KEY FEATURES ── -->
+  <div class="features-section">
+    <div class="section-label">
+      <span class="section-label-tag">주요 특징</span>
+      <div class="section-label-line"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔬</div>
+        <p class="feature-title">미소화 단백질·전분·섬유질 최소화</p>
+        <p class="feature-desc">복합 효소 작용으로 소화되지 않고 손실되던<br>영양소를 <em>최대한 체내로 흡수</em>시킵니다.</p>
+      </div>
+      <div class="feature-card amber">
+        <div class="feature-icon">🌾</div>
+        <p class="feature-title">팜박 · DDGS 원료 이용율 최적화</p>
+        <p class="feature-desc">저비용 원료의 영양 효율을 끌어올려<br><em>사료비를 절감</em>하면서도 품질을 유지합니다.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <p class="feature-title">볏짚 소화율 개선 특허효모균 첨가</p>
+        <p class="feature-desc">볏짚 섭취량을 늘리고 반추위 내 환경을 안정화하는<br><em>특허 보유 효모균</em>이 포함되어 있습니다.</p>
+      </div>
+      <div class="feature-card amber">
+        <div class="feature-icon">🧬</div>
+        <p class="feature-title">동결건조 고초균·효모균 이중 보강</p>
+        <p class="feature-desc">발효 후에도 균 수를 보장하는<br><em>동결건조 분말 혼합</em> 방식으로 효과를 극대화합니다.</p>
+      </div>
+      <div class="enzymes-card">
+        <span class="enzymes-label">⑩ 첨가 효소제</span>
+        <div class="enzymes-list">
+          <span class="enzyme-tag">Xylanase</span>
+          <span class="enzyme-tag">Beta Mannanase</span>
+          <span class="enzyme-tag">Cellulase</span>
+          <span class="enzyme-tag">Phytase</span>
+          <span class="enzyme-tag">Protease</span>
+          <span class="enzyme-tag" style="background:rgba(232,160,32,0.2); border-color:rgba(232,160,32,0.4); color:#f5c842;">+ 5종 추가 효소</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RESULTS ── -->
+  <div class="results-section">
+    <div class="section-label">
+      <span class="section-label-tag" style="background:var(--amber); color:var(--charcoal);">급여 효과</span>
+      <div class="section-label-line" style="background:rgba(255,255,255,0.1);"></div>
+    </div>
+    <h2 class="results-heading">급여 <span>30일</span> 전후 확인되는 변화</h2>
+
+    <div class="results-steps">
+      <div class="result-item">
+        <div class="result-num">01</div>
+        <div class="result-text">
+          <p class="result-title">분변 스코어 개선</p>
+          <p class="result-desc">설사·수양변 감소, 장 건강 개선으로 쾌적한 사육 환경 조성</p>
+        </div>
+        <div class="result-arrow">↑</div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">02</div>
+        <div class="result-text">
+          <p class="result-title">볏짚 섭취량 증가</p>
+          <p class="result-desc">섬유소 분해 효소·효모균 작용으로 거친 조사료 섭취량 향상</p>
+        </div>
+        <div class="result-arrow">↑</div>
+      </div>
+      <div class="result-item">
+        <div class="result-num">03</div>
+        <div class="result-text">
+          <p class="result-title">분변 내 미소화 잔량 최소화</p>
+          <p class="result-desc">소화·흡수되지 않던 영양소 손실을 최소화하여 사료 효율 극대화</p>
+        </div>
+        <div class="result-arrow">↑</div>
+      </div>
+    </div>
+
+    <div class="effect-chain">
+      <div class="effect-step">
+        <p class="effect-step-label">Step 1</p>
+        <p class="effect-step-text">반추위 안정<br>사료섭취량 증가<br>사료이용율 개선</p>
+      </div>
+      <div class="effect-step">
+        <p class="effect-step-label">Step 2</p>
+        <p class="effect-step-text">일당증체량 증가<br>등심단면적 개선<br>근내지방 개선</p>
+      </div>
+      <div class="effect-step">
+        <p class="effect-step-label">Step 3</p>
+        <p class="effect-step-text">사료비 절감<br>한우 출하가격 증대<br>악취·냄새 환경문제 해소</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRICING ── -->
+  <div class="pricing-section">
+    <div class="pricing-main">
+      <span class="pricing-tag">경제성</span>
+      <div class="pricing-amount">210,000<span>원 / 월</span></div>
+      <p class="pricing-note">100두 기준 월간 비용 — 두당 약 <strong>2,100원</strong>으로<br>고급육 생산과 사육 환경 문제를 동시에 해결합니다.</p>
+      <ul class="pricing-benefits">
+        <li>고급육(1++·1+) 생산 비율 향상으로 출하가격 증대</li>
+        <li>악취·암모니아 저감으로 축사 환경문제 해소</li>
+        <li>사료비 절감 및 사료 이용율 향상</li>
+        <li>반추위 안정 → 폐사율 감소</li>
+      </ul>
+    </div>
+    <div class="pricing-usage">
+      <div class="usage-icon">🐄</div>
+      <p class="usage-label">권장 급여량</p>
+      <p class="usage-amount">10~20</p>
+      <p class="usage-unit">g / 두 / 일</p>
+      <div class="usage-badge">어려운 시기에<br>조합원님의 동반자</div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <div class="footer-brand">
+      <p class="footer-brand-name">(주)에프앤티바이오</p>
+      <p class="footer-brand-sub">FNT BIO CO., LTD.</p>
+    </div>
+    <div class="footer-contact">
+      <div class="contact-item">
+        <span class="contact-label">Address</span>
+        <span class="contact-value">서울 송파구 올림픽로 336, 2107호</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <span class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb8d859fb4898284ab858a9d8e99c5888486">[email&#160;protected]</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Tel</span>
+        <span class="contact-value">02-6498-3588<br>010-5269-1459</span>

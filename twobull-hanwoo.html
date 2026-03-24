@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>투뿔한우</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#b02018;--red-mid:#cc3020;--red-light:#fdf0ee;
+  --gold:#c89010;--gold-mid:#e8b020;--gold-light:#fdf5d8;
+  --navy:#0a1840;
+  --dark:#180808;--gray:#4a3830;--gl:#e8e0d8;--white:#fff;--cream:#fdfaf8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#b8a890;display:flex;justify-content:center;padding:40px 20px;}
+.flyer{width:794px;background:var(--cream);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,0.28);}
+
+.hero{background:linear-gradient(135deg,#100808 0%,#3a1008 50%,#6a2808 100%);position:relative;overflow:hidden;padding:0;}
+.hero::before{content:'';position:absolute;right:-60px;top:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(232,176,32,0.18) 0%,transparent 65%);}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:11px 36px;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;z-index:2;}
+.hbadge{background:var(--gold-mid);color:#3a2000;font-size:10px;font-weight:800;padding:3px 12px;border-radius:2px;letter-spacing:.8px;}
+.hco{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;}
+.hbody{display:flex;min-height:210px;position:relative;z-index:2;}
+.hleft{flex:1;padding:30px 36px 34px;}
+.h-q{font-size:13px;color:rgba(255,255,255,0.7);font-style:italic;margin-bottom:8px;line-height:1.5;}
+.h-q em{color:var(--gold-mid);font-style:normal;}
+.hname{font-size:56px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px;margin-bottom:6px;}
+.hname em{color:var(--gold-mid);font-style:normal;}
+.hsub{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:16px;}
+.h-tagline{font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.65;margin-bottom:18px;padding:12px 16px;background:rgba(255,255,255,0.07);border-radius:4px;}
+.h-tagline strong{color:var(--gold-mid);}
+.hpills{display:flex;gap:7px;flex-wrap:wrap;}
+.hpill{background:rgba(232,176,32,0.15);border:1px solid rgba(232,176,32,0.35);color:var(--gold-mid);font-size:11px;font-weight:700;padding:5px 13px;border-radius:20px;}
+.hright{width:195px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 18px;}
+.torb{width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#f0d080 0%,#c08810 45%,#5a3800 100%);border:3px solid rgba(232,176,32,0.45);display:flex;align-items:center;justify-content:center;font-size:52px;box-shadow:0 0 0 8px rgba(232,176,32,0.08),0 14px 36px rgba(0,0,0,0.45);}
+.torl{text-align:center;}
+.torlm{font-size:13px;font-weight:800;color:var(--gold-mid);letter-spacing:.5px;}
+.torls{font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:1.2px;margin-top:2px;}
+
+/* PAIN STRIP */
+.pain-strip{background:var(--red);padding:16px 36px;}
+.ps-title{font-size:14px;font-weight:900;color:#fff;margin-bottom:8px;}
+.ps-items{display:flex;gap:18px;flex-wrap:wrap;}
+.ps-item{display:flex;gap:8px;align-items:baseline;font-size:12px;color:rgba(255,255,255,0.85);}
+.ps-item::before{content:'●';color:#ffaa88;flex-shrink:0;}
+
+/* FEATURES */
+.feat-sec{background:var(--white);padding:28px 36px;}
+.sec-eye{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-tag{background:var(--dark);color:var(--gold-mid);font-size:9px;font-weight:800;padding:4px 13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:var(--gl);}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.feat-card{background:var(--gold-light);border:1px solid #e8d090;padding:18px 18px;border-radius:6px;display:flex;gap:12px;align-items:flex-start;border-top:3px solid var(--gold);}
+.fc-ico{font-size:24px;flex-shrink:0;}
+.fc-body{}
+.fc-title{font-size:13.5px;font-weight:800;color:var(--dark);margin-bottom:5px;}
+.fc-desc{font-size:12px;color:var(--gray);line-height:1.65;}
+.fc-desc em{color:var(--gold);font-style:normal;font-weight:700;}
+
+/* COMBO */
+.combo-sec{background:var(--gold-light);padding:24px 36px;border-top:3px solid var(--gold-mid);}
+.combo-sec .sec-tag{background:var(--gold);color:#3a2000;}
+.combo-box{background:var(--white);border:1.5px solid #e8d090;border-radius:6px;padding:20px 24px;margin-top:16px;display:flex;gap:24px;align-items:center;}
+.cb-main{flex:1;}
+.cb-combo{font-size:15px;font-weight:900;color:var(--dark);margin-bottom:8px;}
+.cb-combo span{color:var(--red);}
+.cb-combo em{color:var(--gold);font-style:normal;}
+.cb-desc{font-size:13px;color:var(--gray);line-height:1.65;}
+.cb-desc strong{color:var(--dark);}
+.cb-amount{text-align:center;min-width:160px;}
+.ca-label{font-size:11px;font-weight:700;color:var(--gray);margin-bottom:6px;letter-spacing:.5px;}
+.ca-val{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;color:var(--red);line-height:1;}
+.ca-unit{font-size:12px;color:var(--gray);margin-top:4px;}
+
+/* CAUTION */
+.caution-sec{background:var(--red-light);padding:20px 36px;border-top:3px solid var(--red);}
+.caution-items{display:flex;gap:18px;flex-wrap:wrap;}
+.ca-item{display:flex;gap:8px;font-size:12.5px;color:var(--dark);flex:1;min-width:280px;background:var(--white);padding:10px 14px;border-radius:4px;border-left:3px solid var(--red);}
+.ca-item::before{content:'⚠';color:var(--red);flex-shrink:0;}
+
+/* SLOGAN */
+.slogan-bar{background:var(--dark);padding:16px 36px;text-align:center;}
+.slogan-bar p{font-size:16px;font-weight:900;color:var(--gold-mid);line-height:1.5;}
+
+/* FOOTER */
+.footer{background:#0a0808;display:flex;overflow:hidden;}
+.ftl{flex:1;padding:20px 28px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.ft-lbl{font-size:10px;font-weight:700;color:var(--gold-mid);letter-spacing:2px;text-transform:uppercase;}
+.ft-main{font-size:14px;font-weight:900;color:#fff;line-height:1.4;}
+.ft-cons{display:flex;gap:18px;margin-top:8px;}
+.fc{display:flex;flex-direction:column;gap:2px;}
+.fcl{font-size:8px;font-weight:700;letter-spacing:1.5px;color:var(--gold-mid);text-transform:uppercase;}
+.fcv{font-size:11px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.ftr{width:175px;flex-shrink:0;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 14px;text-align:center;gap:3px;}
+.ftr-co{font-size:10px;color:rgba(10,24,64,0.6);}
+.ftr-main{font-size:18px;font-weight:900;color:var(--navy);line-height:1.1;}
+.ftr-tel{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:var(--navy);margin-top:3px;}
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+<div class="hero">
+  <div class="htop">
+    <span class="hbadge">판매원: (주)에프앤티바이오 · 네이버블로그 "에프앤티바이오"</span>
+    <span class="hco">1++ 출하 전용</span>
+  </div>
+  <div class="hbody">
+    <div class="hleft">
+      <p class="h-q">"출하할 소 있으세요?" — <em>"1++ 등급, 마지막 마무리가 중요합니다!"</em></p>
+      <h1 class="hname"><em>투뿔</em>한우</h1>
+      <p class="hsub">1++ 출하를 위한 맞춤 보조사료</p>
+      <div class="h-tagline">
+        <strong>반추위 보호 비타민 + 유기태 미네랄 고함량</strong> 함유.<br>
+        마블링 강화, 등심단면적 확대, 항산화·스트레스 저감으로 출하 성적을 완성합니다.
+      </div>
+      <div class="hpills">
+        <span class="hpill">마블링 강화</span>
+        <span class="hpill">등심단면적 확대</span>
+        <span class="hpill">항산화·스트레스 저감</span>
+        <span class="hpill">루멘패스 비타민C 포함</span>
+      </div>
+    </div>
+    <div class="hright">
+      <div class="torb">🥩</div>
+      <div class="torl">
+        <p class="torlm">투뿔한우</p>
+        <p class="torls">Premium 1++ Solution</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pain-strip">
+  <p class="ps-title">혹시 이런 고민, 해보신 적 있나요?</p>
+  <div class="ps-items">
+    <div class="ps-item">도체중은 잘 나오는데 등급이 1+에서 멈춘다</div>
+    <div class="ps-item">마블링과 등심단면적이 아쉽다</div>
+    <div class="ps-item">출하 성적이 항상 일정하지 않아 불안하다</div>
+  </div>
+</div>
+
+<div class="feat-sec">
+  <div class="sec-eye"><span class="sec-tag">투뿔한우 핵심 기능</span><div class="sec-line"></div></div>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="fc-ico">🥩</div>
+      <div class="fc-body">
+        <p class="fc-title">마블링 강화</p>
+        <p class="fc-desc"><em>근내지방 축적을 촉진</em>하고 육질을 고급화하여 1+에서 1++로의 등급 상향을 지원합니다.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="fc-ico">📐</div>
+      <div class="fc-body">
+        <p class="fc-title">등심단면적 확대</p>
+        <p class="fc-desc">근섬유 발달을 촉진하여 <em>등심단면적을 확대</em>하고 경락가를 상승시킵니다.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="fc-ico">🛡️</div>
+      <div class="fc-body">
+        <p class="fc-title">항산화·스트레스 저감</p>
+        <p class="fc-desc">면역을 안정시키고 <em>출하 직전 품질을 보장</em>하는 항산화 성분이 포함되어 있습니다.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="fc-ico">💊</div>
+      <div class="fc-body">
+        <p class="fc-title">루멘패스 비타민C — 별도 포장</p>
+        <p class="fc-desc">코팅 비타민C는 <em>분리 현상 없이 급여 가능</em>하도록 별도 포장되어 편리하게 사용합니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="combo-sec">
+  <div class="sec-eye"><span class="sec-tag">급여 방법</span><div class="sec-line" style="background:rgba(200,144,16,0.25);"></div></div>
+  <div class="combo-box">
+    <div class="cb-main">
+      <p class="cb-combo">비육기 (15개월 ~ 출하시)<br><span>투뿔한우</span> 30~50g + <em>루멘패스 비타민C</em> 10g</p>
+      <p class="cb-desc">
+        <strong>고에너지 사료(TDN 75~80%)</strong>와 함께 급여 시 효과 극대화.<br>
+        미네랄 함량이 높은 사료 급여 시 <strong>권장량 50% 내외</strong>로 급여하십시오.
+      </p>
+    </div>
+    <div class="cb-amount">
+      <p class="ca-label">일일 두당 급여</p>
+      <p class="ca-val">40~60</p>
+      <p class="ca-unit">g / 일 · 두당<br>(투뿔한우+비타민C 합산)</p>
+    </div>
+  </div>
+</div>
+
+<div class="caution-sec">
+  <div class="sec-eye"><span class="sec-tag">주의 사항</span><div class="sec-line" style="background:rgba(176,32,24,0.2);"></div></div>
+  <div class="caution-items">
+    <div class="ca-item">고에너지 사료(TDN 75~80%)와 함께 급여 시 효과 극대화</div>
+    <div class="ca-item">미네랄 함량이 높은 사료 급여 시 권장량 50% 내외 급여</div>
+  </div>
+</div>
+
+<div class="slogan-bar">
+  <p>"출하 성적, 지금부터 준비하세요."<br>"투뿔한우와 함께라면 1++이 가까워집니다."</p>
+</div>
+
+<div class="footer">
+  <div class="ftl">
+    <p class="ft-lbl">주문 문의</p>
+    <p class="ft-main">투뿔한우 — 1++ 출하를 위한 맞춤 보조사료<br>출하 성적을 지금부터 준비하세요</p>
+    <div class="ft-cons">
+      <div class="fc"><span class="fcl">Company</span><span class="fcv">(주)에프앤티바이오</span></div>
+      <div class="fc"><span class="fcl">HP</span><span class="fcv">010-5269-1459</span></div>
+      <div class="fc"><span class="fcl">TEL</span><span class="fcv">02-6498-3588</span></div>
+    </div>
+  </div>
+  <div class="ftr">
+    <p class="ftr-co">(주)에프앤티바이오</p>
+    <p class="ftr-main">주문<br>문의</p>
+    <p class="ftr-tel">010-5269-1459</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

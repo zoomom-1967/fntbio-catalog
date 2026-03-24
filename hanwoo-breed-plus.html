@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>한우 번식 플러스</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#b82018;--red-mid:#d43a28;--red-light:#fdf0ee;--red-pale:#fffaf9;
+  --gold:#c89810;--gold-light:#fdf5d8;
+  --green:#1a7a2a;--green-light:#e8f7ec;
+  --dark:#1e1208;--gray:#5a4840;--gray-light:#ede8e4;--white:#fff;--cream:#fdfaf8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#c8b8a8;display:flex;justify-content:center;padding:40px 20px;}
+.flyer{width:794px;background:var(--cream);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,0.28);}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#6a1808 0%,#b82018 55%,#d84828 100%);padding:0;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,0.05);}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:12px 36px;border-bottom:1px solid rgba(255,255,255,0.12);position:relative;z-index:2;}
+.hbadge{background:var(--gold);color:#3a2000;font-size:10px;font-weight:800;padding:3px 12px;border-radius:2px;letter-spacing:.8px;}
+.hco{font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:1px;}
+.hbody{display:flex;min-height:210px;position:relative;z-index:2;}
+.hleft{flex:1;padding:30px 36px 34px;}
+.h-alert{font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:10px;font-weight:600;}
+.h-alert span{color:#ffe080;}
+.hname{font-size:52px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1.5px;margin-bottom:4px;}
+.hsub{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:18px;letter-spacing:.5px;}
+.hpills{display:flex;gap:7px;flex-wrap:wrap;}
+.hpill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.28);color:#fff;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;}
+.hright{width:195px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 18px;}
+.rorb{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#f0a060 0%,#c03020 45%,#6a1808 100%);border:3px solid rgba(255,255,255,0.28);display:flex;align-items:center;justify-content:center;font-size:48px;box-shadow:0 10px 32px rgba(0,0,0,0.35);}
+.rorl{text-align:center;}
+.rorlm{font-size:13px;font-weight:800;color:#ffe080;letter-spacing:.5px;}
+.rorls{font-size:9px;color:rgba(255,255,255,0.38);letter-spacing:1.2px;margin-top:2px;}
+
+/* LOSS STRIP */
+.loss-strip{background:#8a1208;padding:16px 36px;display:flex;align-items:center;gap:20px;}
+.ls-icon{font-size:28px;}
+.ls-text{flex:1;}
+.ls-title{font-size:15px;font-weight:900;color:#fff;margin-bottom:4px;}
+.ls-sub{font-size:12.5px;color:rgba(255,255,255,0.7);line-height:1.6;}
+.ls-highlight{background:#ffe040;color:#5a2000;font-size:14px;font-weight:900;padding:10px 20px;border-radius:4px;text-align:center;flex-shrink:0;white-space:nowrap;}
+
+/* SYMPTOM */
+.sym-sec{background:var(--white);padding:30px 36px;}
+.sec-eye{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-tag{background:var(--dark);color:#ffe080;font-size:9px;font-weight:800;padding:4px 13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:var(--gray-light);}
+.sym-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.sym-card{background:var(--red-light);border:1px solid #f0c0bc;padding:16px 16px;border-radius:6px;text-align:center;}
+.sc-icon{font-size:28px;margin-bottom:8px;}
+.sc-text{font-size:13px;color:var(--dark);font-weight:600;line-height:1.5;}
+.sc-text em{color:var(--red-mid);font-style:normal;font-weight:800;}
+
+/* MIRACLE 20G */
+.miracle-sec{background:var(--gold-light);padding:28px 36px;border-top:4px solid var(--gold);}
+.miracle-sec .sec-tag{background:var(--gold);color:#3a2000;}
+.m-heading{font-size:24px;font-weight:900;color:var(--dark);margin-bottom:20px;line-height:1.3;}
+.m-heading span{color:var(--red);}
+.m-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.m-card{background:var(--white);border:1.5px solid #e0c870;padding:20px 18px;border-radius:6px;}
+.mc-icon{font-size:28px;margin-bottom:10px;}
+.mc-badge{display:inline-block;background:var(--gold);color:#3a2000;font-size:9px;font-weight:800;padding:2px 10px;border-radius:10px;margin-bottom:8px;letter-spacing:.5px;}
+.mc-title{font-size:13.5px;font-weight:800;color:var(--dark);margin-bottom:6px;}
+.mc-desc{font-size:12px;color:var(--gray);line-height:1.65;}
+.mc-desc em{color:var(--gold);font-style:normal;font-weight:700;}
+
+/* COMPOSITION */
+.comp-sec{background:var(--white);padding:28px 36px;}
+.comp-sec .sec-tag{background:var(--red);color:#fff;}
+.comp-inner{display:flex;gap:24px;margin-top:18px;}
+.comp-left{flex:1;background:var(--red-pale);border:1.5px solid #f0c0bc;padding:20px 20px;border-radius:6px;}
+.cl-title{font-size:13px;font-weight:800;color:var(--red);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--red-light);}
+.cl-items{display:flex;flex-direction:column;gap:7px;}
+.cl-item{display:flex;align-items:baseline;gap:8px;font-size:12.5px;color:var(--dark);line-height:1.5;}
+.cl-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:4px;}
+.comp-right{flex:1;background:var(--gold-light);border:1.5px solid #e0c870;padding:20px 20px;border-radius:6px;}
+.cr-title{font-size:13px;font-weight:800;color:#8a6000;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--gold);}
+.cr-items{display:flex;flex-direction:column;gap:7px;}
+.cr-item{display:flex;align-items:baseline;gap:8px;font-size:12.5px;color:var(--dark);line-height:1.5;}
+.cr-dot{width:7px;height:7px;background:var(--red);border-radius:50%;flex-shrink:0;margin-top:4px;}
+
+/* RESULT BAR */
+.result-bar{background:var(--red);padding:18px 36px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.rb-item{display:flex;align-items:center;gap:8px;color:#fff;font-size:15px;font-weight:800;}
+.rb-arrow{font-size:18px;}
+.rb-sep{width:1px;height:30px;background:rgba(255,255,255,0.3);}
+
+/* DOSAGE */
+.dose-sec{background:var(--white);padding:24px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.dose-left{flex:1;}
+.dose-title{font-size:15px;font-weight:800;color:var(--dark);margin-bottom:6px;}
+.dose-row{display:flex;align-items:center;gap:16px;}
+.dose-big{font-family:'Montserrat',sans-serif;font-size:48px;font-weight:900;color:var(--red);line-height:1;}
+.dose-unit{font-size:15px;color:var(--gray);font-weight:600;}
+.dose-note{max-width:400px;font-size:12.5px;color:var(--gray);line-height:1.7;background:var(--red-light);border:1px solid #f0c0bc;padding:14px 18px;border-radius:6px;}
+.dose-note strong{color:var(--red-mid);}
+
+/* FOOTER */
+.footer{background:var(--dark);display:flex;overflow:hidden;}
+.ft-left{flex:1;padding:22px 28px;display:flex;flex-direction:column;justify-content:center;gap:5px;}
+.ft-label{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;}
+.ft-main{font-size:15px;font-weight:900;color:#fff;line-height:1.4;}
+.ft-contacts{display:flex;gap:20px;margin-top:10px;}
+.fcc{display:flex;flex-direction:column;gap:2px;}
+.fc-l{font-size:8.5px;font-weight:700;letter-spacing:1.5px;color:#ffe080;text-transform:uppercase;}
+.fc-v{font-size:11.5px;color:rgba(255,255,255,0.75);line-height:1.5;}
+.ft-right{width:180px;flex-shrink:0;background:var(--red-mid);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 16px;text-align:center;gap:4px;}
+.ftr-top{font-size:10px;color:rgba(255,255,255,0.6);font-weight:600;}
+.ftr-main{font-size:20px;font-weight:900;color:#fff;line-height:1.1;}
+.ftr-tel{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#ffe080;margin-top:4px;}
+.ftr-sub{font-size:10px;color:rgba(255,255,255,0.5);margin-top:2px;}
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+  <div class="hero">
+    <div class="htop">
+      <span class="hbadge">주문/상담 · (주)에프앤티바이오 권영웅</span>
+      <span class="hco">010-5269-1459</span>
+    </div>
+    <div class="hbody">
+      <div class="hleft">
+        <p class="h-alert">볏짚·배합사료 만으로 충분할까요? <span>번식 성적은 미네랄·비타민 차이입니다</span></p>
+        <h1 class="hname">한우 번식 플러스</h1>
+        <p class="hsub">(번식우 전용 미네랄·비타민 프리믹스)</p>
+        <div class="hpills">
+          <span class="hpill">유기태 미네랄</span>
+          <span class="hpill">베타카로틴 고농축</span>
+          <span class="hpill">항산화 비타민E</span>
+          <span class="hpill">두당 20g / 일</span>
+          <span class="hpill">번식우 전용</span>
+        </div>
+      </div>
+      <div class="hright">
+        <div class="rorb">🐄</div>
+        <div class="rorl">
+          <p class="rorlm">번식 플러스</p>
+          <p class="rorls">Breeding Plus</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="loss-strip">
+    <div class="ls-icon">💸</div>
+    <div class="ls-text">
+      <p class="ls-title">공태 1두 = 하루 15,000원씩 버리는 손실!</p>
+      <p class="ls-sub">발정 지연, 수정 실패, 초기 유산 — 이 모든 문제의 공통 원인은 <strong style="color:#ffe080;">미네랄·비타민 공백</strong>입니다.</p>
+    </div>
+    <div class="ls-highlight">공태는<br>하루 15,000원<br>손실입니다</div>
+  </div>
+
+  <div class="sym-sec">
+    <div class="sec-eye">
+      <span class="sec-tag">이런 증상은 '미네랄·비타민 공백' 신호</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="sym-grid">
+      <div class="sym-card">
+        <div class="sc-icon">🔄</div>
+        <p class="sc-text">발정이 올 듯 말 듯<br><em>애만 태우는 소</em></p>
+      </div>
+      <div class="sym-card">
+        <div class="sc-icon">💧</div>
+        <p class="sc-text">수정은 했는데 자꾸<br><em>미끄러지는(유산) 소</em></p>
+      </div>
+      <div class="sym-card">
+        <div class="sc-icon">😔</div>
+        <p class="sc-text">새끼 낳고 비실비실<br><em>일어서지 못하는 소</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="miracle-sec">
+    <div class="sec-eye">
+      <span class="sec-tag">딱 20g의 기적</span>
+      <div class="sec-line" style="background:rgba(200,152,16,0.3);"></div>
+    </div>
+    <h2 class="m-heading">하루 <span>20g</span>이 번식 성적을 바꿉니다</h2>
+    <div class="m-grid">
+      <div class="m-card">
+        <div class="mc-icon">⚗️</div>
+        <span class="mc-badge">유기태 미네랄</span>
+        <p class="mc-title">흡수율이 다른 유기태 미네랄</p>
+        <p class="mc-desc"><em>아연, 망간, 구리, 셀레늄</em> 유기태 20% 함유. 무기태 대비 월등히 높은 흡수율로 번식 기능을 직접 지원합니다.</p>
+      </div>
+      <div class="m-card">
+        <div class="mc-icon">🌿</div>
+        <span class="mc-badge">베타카로틴</span>
+        <p class="mc-title">고농축 베타카로틴</p>
+        <p class="mc-desc">난소 기능을 깨우고 <em>발정 표현을 선명하게</em>. 수정 적기 포착률을 높여 임신 성공률을 향상시킵니다.</p>
+      </div>
+      <div class="m-card">
+        <div class="mc-icon">❤️</div>
+        <span class="mc-badge">착상·항산화</span>
+        <p class="mc-title">착상력 향상 + 항산화 (호모셀레늄 + 비타민E)</p>
+        <p class="mc-desc">수정 후 '<em>붙는 환경</em>'을 안정화해 초기 유산을 줄이고 건강한 임신 유지를 돕습니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="comp-sec">
+    <div class="sec-eye">
+      <span class="sec-tag">주요 구성성분 — 유기태 + 고함량</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="comp-inner">
+      <div class="comp-left">
+        <p class="cl-title">⚗️ 미네랄 (유기태)</p>
+        <div class="cl-items">
+          <div class="cl-item"><div class="cl-dot"></div>아연(Zn) — 번식·면역·발굽 건강</div>
+          <div class="cl-item"><div class="cl-dot"></div>망간(Mn) — 난소 기능·발정 표현</div>
+          <div class="cl-item"><div class="cl-dot"></div>구리(Cu) — 면역·성장·모색 개선</div>
+          <div class="cl-item"><div class="cl-dot"></div>셀레늄(Se) — 항산화·착상 안정</div>
+        </div>
+      </div>
+      <div class="comp-right">
+        <p class="cr-title">💊 비타민</p>
+        <div class="cr-items">
+          <div class="cr-item"><div class="cr-dot"></div>비타민 A — 생식 점막·면역 강화</div>
+          <div class="cr-item"><div class="cr-dot"></div>비타민 D — 칼슘 대사·골격 지원</div>
+          <div class="cr-item"><div class="cr-dot"></div>비타민 E — 항산화·착상 환경 안정</div>
+          <div class="cr-item"><div class="cr-dot"></div>베타카로틴 — 난소 활성·발정 선명</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-bar">
+    <div class="rb-item">📈 발정 회복<span class="rb-arrow">↑</span></div>
+    <div class="rb-sep"></div>
+    <div class="rb-item">🎯 수정률<span class="rb-arrow">↑</span></div>
+    <div class="rb-sep"></div>
+    <div class="rb-item">🤱 착상률<span class="rb-arrow">↑</span></div>
+    <div class="rb-sep"></div>
+    <div class="rb-item">🚫 초기 유산<span class="rb-arrow">↓</span></div>
+  </div>
+
+  <div class="dose-sec">
+    <div class="dose-left">
+      <p class="dose-title">권장 급여량</p>
+      <div class="dose-row">
+        <p class="dose-big">20</p>
+        <p class="dose-unit">g / 두 / 일<br>(번식우 전 구간)</p>
+      </div>
+    </div>
+    <div class="dose-note">
+      <strong>📌 번식성적, 교배 전에 먼저 잡아야 합니다</strong><br>
+      교배 최소 30일 전부터 급여를 시작하면 미네랄·비타민이 체내에 축적되어 발정 표현, 수정률, 착상률이 눈에 띄게 향상됩니다.<br>
+      분만 전후 4주간 집중 급여도 권장합니다.
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="ft-left">
+      <p class="ft-label">주문 및 기술상담</p>
+      <p class="ft-main">번식 성적, 교배 전에 먼저 잡아야 합니다<br>한우 번식 플러스로 농장 수익을 높이세요</p>
+      <div class="ft-contacts">
+        <div class="fcc"><span class="fc-l">Company</span><span class="fc-v">(주)에프앤티바이오</span></div>
+        <div class="fcc"><span class="fc-l">Address</span><span class="fc-v">서울 송파구 올림픽로 336, 2107호</span></div>
+        <div class="fcc"><span class="fc-l">Email</span><span class="fc-v"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="30565e446f52595f705e514655421e535f5d">[email&#160;protected]</a></span></div>
+      </div>
+    </div>
+    <div class="ft-right">
+      <p class="ftr-top">(주)에프앤티바이오</p>
+      <p class="ftr-main">권영웅<br>대표</p>
+      <p class="f

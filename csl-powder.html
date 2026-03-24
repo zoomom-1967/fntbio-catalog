@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSL POWDER - 리뉴얼 전단지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber-deep:   #8b4a00;
+    --amber-mid:    #c4720a;
+    --amber:        #e8921a;
+    --amber-light:  #f5b84a;
+    --amber-pale:   #fff7ed;
+    --cream:        #faf6f0;
+    --sand:         #f0e8d8;
+    --brown-dark:   #3d2000;
+    --charcoal:     #1c1c1c;
+    --gray:         #6b7280;
+    --gray-light:   #e5e7eb;
+    --white:        #ffffff;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #d6cfc3;
+    display: flex;
+    justify-content: center;
+    padding: 48px 20px;
+  }
+
+  .flyer {
+    width: 794px;
+    background: var(--cream);
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.28);
+  }
+
+  /* ══ HEADER ══ */
+  .header {
+    background: var(--brown-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-noise {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* big decorative circle */
+  .header::before {
+    content: '';
+    position: absolute;
+    right: -120px; top: -120px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,146,26,0.18) 0%, transparent 70%);
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative; z-index:1;
+  }
+
+  .badge {
+    background: var(--amber);
+    color: var(--brown-dark);
+    font-size: 10px; font-weight: 800;
+    padding: 4px 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .company-top {
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1.2px;
+  }
+
+  .header-body {
+    display: flex;
+    align-items: stretch;
+    min-height: 220px;
+    position: relative; z-index:1;
+  }
+
+  /* left: text */
+  .header-left {
+    flex: 1;
+    padding: 36px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .product-category {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--amber-light);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .product-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 88px;
+    letter-spacing: 4px;
+    color: var(--white);
+    line-height: 0.95;
+    margin-bottom: 14px;
+  }
+
+  .product-title span { color: var(--amber-light); }
+
+  .product-tagline {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    background: var(--amber-light);
+    padding: 6px 16px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .header-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    max-width: 380px;
+  }
+
+  .header-desc strong { color: var(--amber-light); font-weight: 700; }
+
+  /* right: visual block */
+  .header-right {
+    width: 220px;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.04);
+    border-left: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 28px 20px;
+  }
+
+  .powder-circle {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 38%, #d4a45a, #8b5a1a, #3d2000);
+    border: 3px solid rgba(232,146,26,0.4);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.4), inset 0 2px 6px rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px;
+  }
+
+  .powder-label {
+    text-align: center;
+  }
+
+  .powder-label-main {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--amber-light);
+    letter-spacing: 2px;
+  }
+
+  .powder-label-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  /* ══ KEY NUMBERS ══ */
+  .key-numbers {
+    background: var(--amber);
+    display: flex;
+  }
+
+  .kn-item {
+    flex: 1;
+    padding: 18px 12px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.25);
+    position: relative;
+  }
+
+  .kn-item:last-child { border-right: none; }
+
+  .kn-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    color: var(--brown-dark);
+    line-height: 1;
+  }
+
+  .kn-unit {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--brown-dark);
+  }
+
+  .kn-label {
+    font-size: 11px;
+    color: rgba(61,32,0,0.65);
+    margin-top: 4px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* ══ POINTS SECTION ══ */
+  .points-section {
+    padding: 44px 40px 40px;
+    background: var(--cream);
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+
+  .eyebrow-tag {
+    background: var(--brown-dark);
+    color: var(--amber-light);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 14px;
+    text-transform: uppercase;
+  }
+
+  .eyebrow-line {
+    flex: 1; height: 1px;
+    background: var(--gray-light);
+  }
+
+  /* point cards */
+  .point-card {
+    display: flex;
+    gap: 0;
+    margin-bottom: 20px;
+    border: 1px solid var(--gray-light);
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .point-label-col {
+    width: 110px;
+    flex-shrink: 0;
+    background: var(--brown-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 12px;
+    gap: 6px;
+  }
+
+  .point-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--amber-light);
+    line-height: 1;
+  }
+
+  .point-word {
+    font-size: 9px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .point-body {
+    flex: 1;
+    padding: 24px 26px;
+  }
+
+  .point-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .point-title span { color: var(--amber-mid); }
+
+  .point-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .point-bullets li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #374151;
+    line-height: 1.55;
+  }
+
+  .point-bullets li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--amber);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .point-bullets li em {
+    color: var(--amber-mid);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .point-aside {
+    width: 210px;
+    flex-shrink: 0;
+    background: var(--sand);
+    border-left: 1px solid var(--gray-light);
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .aside-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--amber-deep);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(139,74,0,0.2);
+    padding-bottom: 6px;
+    margin-bottom: 2px;
+  }
+
+  /* ── ingredients table ── */
+  .ingr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+  }
+
+  .ingr-table th {
+    background: var(--amber-deep);
+    color: white;
+    font-weight: 700;
+    padding: 4px 8px;
+    text-align: left;
+    font-size: 10px;
+  }
+
+  .ingr-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    color: var(--charcoal);
+  }
+
+  .ingr-table tr:nth-child(even) td { background: rgba(0,0,0,0.03); }
+
+  .ingr-table td:last-child {
+    font-weight: 700;
+    color: var(--amber-deep);
+    text-align: right;
+  }
+
+  /* mini chart (lactic acid) */
+  .mini-chart {
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 2px;
+    padding: 12px 12px 8px;
+  }
+
+  .chart-title-small {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--amber-deep);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 70px;
+  }
+
+  .bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .bar {
+    width: 100%;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+  }
+
+  .bar-val {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--amber-deep);
+    white-space: nowrap;
+  }
+
+  .bar-name {
+    font-size: 9px;
+    color: var(--gray);
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* usage table area */
+  .point-aside-usage {
+    width: 210px;
+    flex-shrink: 0;
+    background: var(--sand);
+    border-left: 1px solid var(--gray-light);
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* organic acids chips */
+  .acid-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .acid-chip {
+    background: rgba(139,74,0,0.1);
+    border: 1px solid rgba(139,74,0,0.25);
+    color: var(--amber-deep);
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* ══ DOSAGE ══ */
+  .dosage-section {
+    background: var(--brown-dark);
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dosage-section::before {
+    content: 'DOSAGE';
+    position: absolute;
+    right: -10px; bottom: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 140px;
+    color: rgba(255,255,255,0.04);
+    letter-spacing: 4px;
+  }
+
+  .dosage-section .section-eyebrow .eyebrow-tag {
+    background: var(--amber);
+    color: var(--brown-dark);
+  }
+
+  .dosage-section .eyebrow-line { background: rgba(255,255,255,0.1); }
+
+  .dosage-heading {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+
+  .dosage-heading span { color: var(--amber-light); }
+
+  .dosage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    position: relative; z-index:1;
+  }
+
+  .dosage-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 22px 24px;
+  }
+
+  .dosage-animal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .dosage-icon {
+    font-size: 32px;
+    width: 48px; height: 48px;
+    background: rgba(232,146,26,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .dosage-animal-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--white);
+  }
+
+  .dosage-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .dosage-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.04);
+    padding: 8px 14px;
+    border-left: 3px solid var(--amber);
+  }
+
+  .dosage-stage {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+  }
+
+  .dosage-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--amber-light);
+    line-height: 1;
+  }
+
+  .dosage-amount span {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+
+  .dosage-note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    text-align: right;
+    font-style: italic;
+  }
+
+  /* ══ APPLICATION ══ */
+  .app-section {
+    background: var(--white);
+    padding: 36px 40px;
+    border-top: 4px solid var(--amber);
+  }
+
+  .app-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .app-card {
+    background: var(--cream);
+    border: 1px solid var(--gray-light);
+    padding: 22px 18px;
+    text-align: center;
+  }
+
+  .app-card-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .app-card-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--brown-dark);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .app-card-desc {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .app-card-desc em {
+    color: var(--amber-mid);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  /* ══ FOOTER ══ */
+  .footer {
+    background: var(--charcoal);
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .footer-brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .footer-brand-role {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 3px;
+  }
+
+  .footer-contacts {
+    display: flex;
+    gap: 28px;
+  }
+
+  .fc-item { display: flex; flex-direction: column; gap: 3px; }
+
+  .fc-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--amber-light);
+    text-transform: uppercase;
+  }
+
+  .fc-value {
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+
+  .footer-cta {
+    background: var(--amber);
+    color: var(--brown-dark);
+    font-size: 13px;
+    font-weight: 800;
+    padding: 14px 22px;
+    text-align: center;
+    line-height: 1.45;
+    flex-shrink: 0;
+  }
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <div class="header-noise"></div>
+    <div class="header-top">
+      <div class="badge">수입판매원 · FNT BIO</div>
+      <span class="company-top">주식회사 에프앤티바이오</span>
+    </div>
+    <div class="header-body">
+      <div class="header-left">
+        <p class="product-category">단백질 공급원 / 발효대두박 대체</p>
+        <h1 class="product-title"><span>CSL</span> POWDER</h1>
+        <span class="product-tagline">Corn Steep Liquor · 수용성 단백질 43% 이상</span>
+        <p class="header-desc">
+          <strong>옥수수 습식 제분 부산물</strong>을 분말화한 고기능성 단백질 소재.<br>
+          유리아미노산·활성펩타이드·젖산의 3중 시너지로<br>
+          <strong>소화 흡수율, 반추위 안정성, 미생물 배양</strong>을 동시에 실현합니다.
+        </p>
+      </div>
+      <div class="header-right">
+        <div class="powder-circle">🌽</div>
+        <div class="powder-label">
+          <p class="powder-label-main">CSL POWDER</p>
+          <p class="powder-label-sub">Corn Steep Liquor</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ KEY NUMBERS ══ -->
+  <div class="key-numbers">
+    <div class="kn-item">
+      <div><span class="kn-value">43</span><span class="kn-unit">%+</span></div>
+      <p class="kn-label">수용성 단백질</p>
+    </div>
+    <div class="kn-item">
+      <div><span class="kn-value">35</span><span class="kn-unit">%+</span></div>
+      <p class="kn-label">아미노산 함량</p>
+    </div>
+    <div class="kn-item">
+      <div><span class="kn-value">21</span><span class="kn-unit">%+</span></div>
+      <p class="kn-label">젖산(Lactic Acid)</p>
+    </div>
+    <div class="kn-item">
+      <div><span class="kn-value">80</span><span class="kn-unit">:20</span></div>
+      <p class="kn-label">RDP : RUP 비율</p>
+    </div>
+    <div class="kn-item">
+      <div><span class="kn-value">31</span><span class="kn-unit">%</span></div>
+      <p class="kn-label">유기탄소(C)</p>
+    </div>
+  </div>
+
+  <!-- ══ POINTS ══ -->
+  <div class="points-section">
+    <div class="section-eyebrow">
+      <span class="eyebrow-tag">핵심 기능</span>
+      <div class="eyebrow-line"></div>
+    </div>
+
+    <!-- Point 1 -->
+    <div class="point-card">
+      <div class="point-label-col">
+        <span class="point-num">01</span>
+        <span class="point-word">Point</span>
+      </div>
+      <div class="point-body">
+        <h3 class="point-title">소화·흡수가 탁월한 <span>프리미엄 단백질</span> 공급원</h3>
+        <ul class="point-bullets">
+          <li>수용성 단백질 <em>43% 이상</em> — 즉각적인 흡수 가능</li>
+          <li>유리아미노산 + 활성펩타이드 형태로 소화율 극대화</li>
+          <li>아미노산 총 함량 <em>35% 이상</em> 보장</li>
+          <li>RDP : RUP = <em>80 : 20</em> — 발효대두박을 효과적으로 대체</li>
+        </ul>
+      </div>
+      <div class="point-aside">
+        <p class="aside-title">성분 분석표</p>
+        <table class="ingr-table">
+          <thead>
+            <tr><th>성분</th><th>단위</th><th>함량</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Soluble Protein</td><td>%</td><td>43</td></tr>
+            <tr><td>Amino Acid</td><td>%</td><td>35</td></tr>
+            <tr><td>Organic Nitrogen</td><td>%</td><td>6.8</td></tr>
+            <tr><td>P (P₂O₅)</td><td>%</td><td>6</td></tr>
+            <tr><td>K (K₂O)</td><td>%</td><td>6</td></tr>
+            <tr><td>Organic Carbon</td><td>%</td><td>31</td></tr>
+            <tr><td>Organic Matter</td><td>%</td><td>60</td></tr>
+            <tr><td>Lactic Acid</td><td>%</td><td>21</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Point 2 -->
+    <div class="point-card">
+      <div class="point-label-col">
+        <span class="point-num">02</span>
+        <span class="point-word">Point</span>
+      </div>
+      <div class="point-body">
+        <h3 class="point-title">반추위 발효 <span>안정화</span> &amp; 사료섭취량 개선</h3>
+        <ul class="point-bullets">
+          <li>젖산(Lactic Acid) <em>21% 이상</em> — pH 완충 작용으로 산증 예방</li>
+          <li>반추위 미생물의 에너지원으로 직접 활용</li>
+          <li>전분 함량 높은 곡물 급여 시 <em>CSL 젖산이 더 빠르게 대사</em>되어 안전</li>
+          <li>약간의 신맛으로 사료 기호성·섭취량 개선</li>
+        </ul>
+      </div>
+      <div class="point-aside">
+        <p class="aside-title">유기산 구성</p>
+        <div class="acid-chips">
+          <span class="acid-chip">젖산 (Lactic)</span>
+          <span class="acid-chip">초산 (Acetic)</span>
+          <span class="acid-chip">구연산 (Citric)</span>
+        </div>
+        <div style="height:10px;"></div>
+        <div class="mini-chart">
+          <p class="chart-title-small">유산균 성장 비교 (Log cfu/ml)</p>
+          <div class="chart-bars">
+            <!-- CSL bar -->
+            <div class="bar-group">
+              <span class="bar-val">9.2</span>
+              <div class="bar" style="height:62px; background: linear-gradient(to top, #8b4a00, #e8921a);"></div>
+              <span class="bar-name">CSL<br>배지</span>
+            </div>
+            <!-- MRS bar -->
+            <div class="bar-group">
+              <span class="bar-val">8.7</span>
+              <div class="bar" style="height:52px; background: #c4c4c4;"></div>
+              <span class="bar-name">MRS<br>(대조)</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:9.5px; color:var(--gray); margin-top:6px; line-height:1.4;">연구용 유산균 배지 MRS(Control)와 CSL POWDER 유산균 증식 비교 실험</p>
+      </div>
+    </div>
+
+    <!-- Point 3 -->
+    <div class="point-card">
+      <div class="point-label-col">
+        <span class="point-num">03</span>
+        <span class="point-word">Point</span>
+      </div>
+      <div class="point-body">
+        <h3 class="point-title">유익균·미생물을 위한 <span>천연 배양 배지</span></h3>
+        <ul class="point-bullets">
+          <li>액상당밀 대체 가능 — 함께 사용 시 <em>시너지 효과</em> 극대화</li>
+          <li>TMR 발효사료 제조 시 <em>발효 촉진제</em> 역할</li>
+          <li>유익균·고초균·효모 배양 시 <em>천연 배지</em>로 활용</li>
+        </ul>
+      </div>
+      <div class="point-aside-usage">
+        <p class="aside-title">활용 분야</p>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="background:var(--white); border:1px solid var(--gray-light); padding:10px 12px;">
+            <p style="font-size:11px; font-weight:700; color:var(--amber-deep); margin-bottom:4px;">🐄 한우·육우</p>
+            <p style="font-size:11px; color:var(--gray);">TMR 발효사료 첨가, 반추위 안정</p>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--gray-light); padding:10px 12px;">
+            <p style="font-size:11px; font-weight:700; color:var(--amber-deep); margin-bottom:4px;">🐖 양돈</p>
+            <p style="font-size:11px; color:var(--gray);">발효사료 촉진, 장내 유익균 증식</p>
+          </div>
+          <div style="background:var(--white); border:1px solid var(--gray-light); padding:10px 12px;">
+            <p style="font-size:11px; font-weight:700; color:var(--amber-deep); margin-bottom:4px;">🧫 미생물 배양</p>
+            <p style="font-size:11px; color:var(--gray);">유산균·효모·고초균 배지 대체</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ DOSAGE ══ -->
+  <div class="dosage-section">
+    <div class="section-eyebrow">
+      <span class="eyebrow-tag">권장급여량</span>
+      <div class="eyebrow-line"></div>
+    </div>
+    <h2 class="dosage-heading">축종·성장 단계별 <span>최적 급여 가이드</span></h2>
+    <div class="dosage-grid">
+      <!-- 한우 -->
+      <div class="dosage-card">
+        <div class="dosage-animal">
+          <div class="dosage-icon">🐄</div>
+          <p class="dosage-animal-name">한 우</p>
+        </div>
+        <div class="dosage-rows">
+          <div class="dosage-row">
+            <span class="dosage-stage">어린송아지</span>
+            <div class="dosage-amount">50<span> g</span></div>
+          </div>
+          <div class="dosage-row">
+            <span class="dosage-stage">육성우</span>
+            <div class="dosage-amount">100<span> g</span></div>
+          </div>
+          <div class="dosage-row">
+            <span class="dosage-stage">비육우</span>
+            <div class="dosage-amount">150<span> g</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- 젖소 -->
+      <div class="dosage-card">
+        <div class="dosage-animal">
+          <div class="dosage-icon">🐮</div>
+          <p class="dosage-animal-name">젖 소</p>
+        </div>
+        <div class="dosage-rows">
+          <div class="dosage-row">
+            <span class="dosage-stage">착유우</span>
+            <div class="dosage-amount">200<span> g</span></div>
+          </div>
+        </div>
+        <div style="margin-top:16px; padding: 12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <p style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.6;">
+            💡 <span style="color:var(--amber-light); font-weight:600;">TMR 발효 촉진 목적</span>으로 사용 시<br>
+            액상당밀 대비 동량 또는 50~80% 수준으로 대체 가능
+          </p>
+        </div>
+      </div>
+    </div>
+    <p class="dosage-note">※ 두당 일일 급여량 기준 / 사료 및 사육 환경에 따라 조정 권장</p>
+  </div>
+
+  <!-- ══ APPLICATION BENEFITS ══ -->
+  <div class="app-section">
+    <div class="section-eyebrow">
+      <span class="eyebrow-tag">도입 효과</span>
+      <div class="eyebrow-line"></div>
+    </div>
+    <div class="app-cards">
+      <div class="app-card">
+        <div class="app-card-icon">💰</div>
+        <p class="app-card-title">사료비 절감</p>
+        <p class="app-card-desc">발효대두박·액상당밀을 <em>CSL POWDER</em>로 대체하여 원료비 절감</p>
+      </div>
+      <div class="app-card">
+        <div class="app-card-icon">📈</div>
+        <p class="app-card-title">생산성 향상</p>
+        <p class="app-card-desc">높은 소화흡수율로 일당증체량 개선 및 <em>고급육 출현율</em> 향상</p>
+      </div>
+      <div class="app-card">
+        <div class="app-card-icon">🦠</div>
+        <p class="app-card-title">발효사료 품질 업그레이드</p>
+        <p class="app-card-desc">TMR 발효 시간 단축 + <em>유익균 밀도 증가</em>로 품질 안정화</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div class="footer">
+    <div>
+      <p class="footer-brand-name">주식회사 에프앤티바이오</p>
+      <p class="footer-brand-role">수입판매원 · 마케팅상담 및 기술제공</p>
+    </div>
+    <div class="footer-contacts">
+      <div class="fc-item">
+        <span class="fc-label">Address</span>
+        <span class="fc-value">서울 송파구 올림픽로 336, 2107호</span>
+      </div>
+      <div class="fc-item">
+        <span class="fc-label">Email</span>
+        <span class="fc-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80e6eef4dfe2e9efc0eee1f6e5f2aee3efed">[email&#160;protected]</a><br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93fba1a5aaa2a7a6aad3fdf2e5f6e1bdf0fcfe">[email&#160;protected]</a></span>
+      </div>
+      <div clas

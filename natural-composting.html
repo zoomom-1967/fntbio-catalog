@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>천연부숙제/FB</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brown:#5a3008;--brown-mid:#7a4818;--brown-light:#f5ece0;
+  --green:#1a6020;--green-mid:#2a8030;--green-light:#e0f0e0;
+  --gold:#c89010;--gold-light:#fdf5d8;
+  --blue:#1a50a0;
+  --dark:#181008;--gray:#4a4030;--gl:#e8e0d0;--white:#fff;--cream:#fdf9f4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#b8aa98;display:flex;justify-content:center;padding:40px 20px;}
+.flyer{width:794px;background:var(--cream);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,0.28);}
+
+.hero{background:linear-gradient(135deg,#2a1008 0%,#5a3010 45%,#1a5818 100%);position:relative;overflow:hidden;padding:0;}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:11px 36px;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;z-index:2;}
+.hbadge{background:var(--gold);color:#3a2000;font-size:10px;font-weight:800;padding:3px 12px;border-radius:2px;letter-spacing:.8px;}
+.hco{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;}
+.hbody{display:flex;min-height:210px;position:relative;z-index:2;}
+.hleft{flex:1;padding:30px 36px 34px;}
+.h-kicker{font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:2px;margin-bottom:8px;}
+.hname{font-size:52px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1.5px;margin-bottom:6px;}
+.hname em{color:#c8f060;font-style:normal;}
+.h-tagline{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;border-left:4px solid #c8f060;padding-left:14px;margin-bottom:18px;}
+.h-tagline strong{color:#c8f060;}
+.hpills{display:flex;gap:7px;flex-wrap:wrap;}
+.hpill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;}
+.hright{width:195px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px 18px;}
+.forb{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#c0f080 0%,#4a8020 45%,#1a3808 100%);border:3px solid rgba(200,240,96,0.4);display:flex;align-items:center;justify-content:center;font-size:48px;box-shadow:0 10px 32px rgba(0,0,0,0.35);}
+.forl{text-align:center;}
+.forlm{font-size:12px;font-weight:800;color:#c8f060;letter-spacing:.5px;}
+.forls{font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:1.2px;margin-top:2px;}
+
+/* MECHANISM */
+.mech-sec{background:var(--white);padding:28px 36px;}
+.sec-eye{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-tag{background:var(--dark);color:#c8f060;font-size:9px;font-weight:800;padding:4px 13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:var(--gl);}
+
+.mech-formula{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:22px;}
+.mf-box{background:var(--brown-light);border:2px solid var(--brown-mid);padding:16px 20px;border-radius:6px;text-align:center;}
+.mf-box.green{background:var(--green-light);border-color:var(--green-mid);}
+.mf-icon{font-size:28px;margin-bottom:6px;}
+.mf-title{font-size:14px;font-weight:800;color:var(--dark);}
+.mf-sub{font-size:11px;color:var(--gray);margin-top:3px;}
+.mf-plus{font-size:28px;font-weight:900;color:var(--gold);padding:0 14px;}
+.mf-arrow{font-size:32px;color:var(--gray);padding:0 14px;}
+
+.mech-effects{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.me-card{background:var(--brown-light);border:1px solid var(--gl);padding:16px 18px;border-radius:6px;display:flex;gap:12px;align-items:flex-start;}
+.me-ico{font-size:22px;flex-shrink:0;}
+.me-title{font-size:13px;font-weight:800;color:var(--brown);margin-bottom:4px;}
+.me-desc{font-size:12px;color:var(--gray);line-height:1.6;}
+.me-desc em{color:var(--green);font-style:normal;font-weight:700;}
+
+/* FLOW CHART */
+.flow-sec{background:var(--brown-light);padding:26px 36px;border-top:3px solid var(--brown-mid);}
+.flow-sec .sec-tag{background:var(--brown);color:#c8f060;}
+.flow-sec .sec-line{background:rgba(90,48,8,0.2);}
+
+.flow-chart{display:flex;gap:0;margin-top:18px;}
+.fc-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:0;}
+.fc-box{width:100%;background:var(--white);border:1.5px solid var(--gl);padding:12px 14px;text-align:center;border-radius:4px;}
+.fc-box.input{background:var(--brown-light);border-color:var(--brown-mid);}
+.fc-box.process{background:var(--green-light);border-color:var(--green-mid);}
+.fc-box.result{background:var(--dark);border-color:var(--dark);border-radius:4px;}
+.fc-box-title{font-size:12px;font-weight:800;}
+.fc-box.input .fc-box-title{color:var(--brown);}
+.fc-box.process .fc-box-title{color:var(--green);}
+.fc-box.result .fc-box-title{color:#c8f060;font-size:13px;}
+.fc-box-desc{font-size:10.5px;color:var(--gray);margin-top:3px;line-height:1.4;}
+.fc-box.result .fc-box-desc{color:rgba(255,255,255,0.65);}
+.fc-down{font-size:20px;color:var(--gray);text-align:center;padding:4px 0;}
+.fc-plus{font-size:24px;color:var(--gold);font-weight:900;display:flex;align-items:center;padding:0 10px;margin-top:20px;}
+
+.result-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;justify-content:center;}
+.rc{background:var(--dark);color:#c8f060;font-size:12px;font-weight:700;padding:7px 16px;border-radius:3px;}
+
+/* BACTERIA */
+.bact-sec{background:var(--white);padding:24px 36px;border-top:3px solid var(--green-mid);}
+.bact-sec .sec-tag{background:var(--green);color:#fff;}
+.bact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;}
+.bact-card{background:var(--green-light);border:1.5px solid rgba(42,128,48,0.3);padding:14px 12px;border-radius:6px;text-align:center;}
+.bc-num{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:var(--green);}
+.bc-label{font-size:10px;font-weight:700;color:var(--dark);margin-top:3px;}
+.bc-name{font-size:11px;color:var(--gray);margin-top:3px;line-height:1.35;}
+
+/* FOOTER */
+.footer{background:var(--dark);display:flex;overflow:hidden;}
+.ftl{flex:1;padding:20px 28px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.ft-lbl{font-size:10px;font-weight:700;color:#c8f060;letter-spacing:2px;text-transform:uppercase;}
+.ft-main{font-size:14px;font-weight:900;color:#fff;line-height:1.4;}
+.ft-cons{display:flex;gap:18px;margin-top:8px;}
+.fc{display:flex;flex-direction:column;gap:2px;}
+.fcl{font-size:8px;font-weight:700;letter-spacing:1.5px;color:#c8f060;text-transform:uppercase;}
+.fcv{font-size:11px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.ftr{width:175px;flex-shrink:0;background:var(--green-mid);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 14px;text-align:center;gap:3px;}
+.ftr-co{font-size:11px;color:rgba(255,255,255,0.65);}
+.ftr-main{font-size:18px;font-weight:900;color:#fff;line-height:1.1;}
+.ftr-tel{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#ffe060;margin-top:3px;}
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+<div class="hero">
+  <div class="htop">
+    <span class="hbadge">제품문의 · 주식회사 에프앤티바이오</span>
+    <span class="hco"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99f1abafa0a8adaca0d9f7f8effcebb7faf6f4">[email&#160;protected]</a></span>
+  </div>
+  <div class="hbody">
+    <div class="hleft">
+      <p class="h-kicker">프리바이오틱스를 활용한 천연 부숙제</p>
+      <h1 class="hname">천연부숙제<em>/FB</em></h1>
+      <p class="h-tagline">
+        <strong>특허균 4종 + 프리바이오틱스</strong>의 시너지로<br>
+        불완전 소화 개선, 발효 촉진, 반추위 장내 유익균 증가를 동시에 실현합니다.
+      </p>
+      <div class="hpills">
+        <span class="hpill">특허균 4종</span>
+        <span class="hpill">프리바이오틱스</span>
+        <span class="hpill">발효 촉진</span>
+        <span class="hpill">악취 감소</span>
+        <span class="hpill">양질 퇴비 생산</span>
+      </div>
+    </div>
+    <div class="hright">
+      <div class="forb">🌿</div>
+      <div class="forl">
+        <p class="forlm">천연부숙제/FB</p>
+        <p class="forls">Natural Composting Aid</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mech-sec">
+  <div class="sec-eye"><span class="sec-tag">작용 원리</span><div class="sec-line"></div></div>
+
+  <div class="mech-formula">
+    <div class="mf-box">
+      <div class="mf-icon">🧫</div>
+      <p class="mf-title">특허균 4종</p>
+      <p class="mf-sub">불완전 소화 개선<br>발효 촉진</p>
+    </div>
+    <div class="mf-plus">+</div>
+    <div class="mf-box green">
+      <div class="mf-icon">🌾</div>
+      <p class="mf-title">프리바이오틱스</p>
+      <p class="mf-sub">반추위 장내<br>유익균 증가</p>
+    </div>
+    <div class="mf-arrow">↓</div>
+    <div class="mf-box" style="background:#1a2810;border-color:#1a2810;">
+      <div class="mf-icon">✅</div>
+      <p class="mf-title" style="color:#c8f060;">분변질소 감소</p>
+      <p class="mf-sub" style="color:rgba(255,255,255,0.6);">환경 개선 + 생산성 향상</p>
+    </div>
+  </div>
+
+  <div class="mech-effects">
+    <div class="me-card">
+      <div class="me-ico">🔬</div>
+      <div>
+        <p class="me-title">불완전 소화 개선 + 발효 촉진</p>
+        <p class="me-desc">특허균 4종이 사료의 <em>미소화 성분을 분해</em>하고 발효를 가속화하여 사료 이용효율을 높입니다.</p>
+      </div>
+    </div>
+    <div class="me-card">
+      <div class="me-ico">🦠</div>
+      <div>
+        <p class="me-title">반추위 장내 유익균 증가</p>
+        <p class="me-desc">프리바이오틱스가 장내 유익균의 먹이가 되어 <em>유익균 밀도를 증가</em>시키고 반추위 환경을 개선합니다.</p>
+      </div>
+    </div>
+    <div class="me-card">
+      <div class="me-ico">💨</div>
+      <div>
+        <p class="me-title">악취 감소 + 분변량 감소</p>
+        <p class="me-desc">분변 내 질소 함량을 줄여 <em>암모니아 악취를 현저히 감소</em>시키고 분변량도 줄어듭니다.</p>
+      </div>
+    </div>
+    <div class="me-card">
+      <div class="me-ico">♻️</div>
+      <div>
+        <p class="me-title">양질 퇴비 생산 + 부숙기간 단축</p>
+        <p class="me-desc">분변 품질이 개선되어 <em>부숙 기간이 단축</em>되고 방선균 활성화에 최적 조건이 형성됩니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-sec">
+  <div class="sec-eye"><span class="sec-tag">최종 효과 흐름</span><div class="sec-line"></div></div>
+  <div class="result-chips">
+    <span class="rc">💨 악취 감소</span>
+    <span class="rc">⏱ 부숙기간 단축</span>
+    <span class="rc">♻️ 양질 퇴비 생산</span>
+    <span class="rc">📉 분변량 감소</span>
+    <span class="rc">🌱 방선균 활성화 조건 형성</span>
+    <span class="rc">💰 사료비 절감</span>
+    <span class="rc">📈 생산성 향상</span>
+  </div>
+</div>
+
+<div class="bact-sec">
+  <div class="sec-eye"><span class="sec-tag">특허균 4종 구성</span><div class="sec-line"></div></div>
+  <div class="bact-grid">
+    <div class="bact-card">
+      <div class="bc-num">01</div>
+      <p class="bc-label">발효 촉진균</p>
+      <p class="bc-name">고초균 계열<br>(Bacillus sp.)</p>
+    </div>
+    <div class="bact-card">
+      <div class="bc-num">02</div>
+      <p class="bc-label">섬유소 분해균</p>
+      <p class="bc-name">셀룰로오스<br>분해 특허균</p>
+    </div>
+    <div class="bact-card">
+      <div class="bc-num">03</div>
+      <p class="bc-label">유익균 지원</p>
+      <p class="bc-name">유산균 계열<br>장내 환경 개선</p>
+    </div>
+    <div class="bact-card">
+      <div class="bc-num">04</div>
+      <p class="bc-label">악취 저감균</p>
+      <p class="bc-name">암모니아 분해<br>특허균</p>
+    </div>
+  </div>
+  <div style="margin-top:14px;background:var(--green-light);border:1px solid rgba(42,128,48,0.3);padding:12px 16px;border-radius:4px;font-size:12.5px;color:var(--gray);line-height:1.65;">
+    📌 <strong style="color:var(--green);">사료비 절감과 생산성 향상 효과 추가</strong> — 자세한 제품 설명서는 <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f49cc6c2cdc5c0c1cdb49a95829186da979b99">[email&#160;protected]</a></strong>으로 연락 주시면 보내드립니다.
+  </div>
+</div>
+
+<div class="footer">
+  <div class="ftl">
+    <p class="ft-lbl">제품문의</p>
+    <p class="ft-main">천연부숙제/FB — 프리바이오틱스 활용 부숙제<br>악취·환경 문제를 해결하고 생산성을 높이세요</p>
+    <div class="ft-cons">
+      <div class="fc"><span class="fcl">Company</span><span class="fcv">주식회사 에프앤티바이오</span></div>
+      <div class="fc"><span class="fcl">Email</span><span class="fcv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="600852565951545559200e0116

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>하이앤드 프로서플</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --purple:#5a1880;--purple-mid:#7a28a8;--purple-light:#f0e8f8;--purple-pale:#faf5ff;
+  --green:#1a7040;--green-light:#e0f0e8;
+  --gold:#c89010;--gold-light:#fdf5d8;
+  --dark:#180820;--gray:#3a3048;--gl:#e0d8ec;--white:#fff;--cream:#fdfaff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#a898b8;display:flex;justify-content:center;padding:40px 20px;}
+.flyer{width:794px;background:var(--cream);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,0.28);}
+
+.hero{background:linear-gradient(135deg,#100818 0%,#400870 50%,#6020a0 100%);position:relative;overflow:hidden;padding:0;}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(200,144,16,0.18) 0%,transparent 65%);}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:11px 36px;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;z-index:2;}
+.hbadge{background:var(--gold);color:#3a2000;font-size:10px;font-weight:800;padding:3px 12px;border-radius:2px;letter-spacing:.8px;}
+.hco{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;}
+.hbody{display:flex;min-height:220px;position:relative;z-index:2;}
+.hleft{flex:1;padding:30px 36px 34px;}
+.h-kicker{font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:2px;margin-bottom:8px;}
+.hname{font-size:42px;font-weight:900;color:#fff;line-height:1.05;letter-spacing:-1.5px;margin-bottom:6px;}
+.hname em{color:#d0a0f8;font-style:normal;}
+.hsub{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:14px;letter-spacing:.5px;}
+.h-tagline{font-size:13px;color:rgba(255,255,255,0.78);line-height:1.65;border-left:4px solid #d0a0f8;padding-left:14px;margin-bottom:18px;}
+.h-tagline strong{color:#d0a0f8;}
+.hpills{display:flex;gap:7px;flex-wrap:wrap;}
+.hpill{background:rgba(208,160,248,0.15);border:1px solid rgba(208,160,248,0.35);color:#d0a0f8;font-size:11px;font-weight:700;padding:5px 13px;border-radius:20px;}
+.hright{width:195px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 18px;}
+.horb{width:135px;height:135px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#d0a0f8 0%,#7028b0 45%,#200840 100%);border:3px solid rgba(208,160,248,0.45);display:flex;align-items:center;justify-content:center;font-size:50px;box-shadow:0 10px 32px rgba(0,0,0,0.4);}
+.horl{text-align:center;}
+.horlm{font-size:12px;font-weight:800;color:#d0a0f8;letter-spacing:.5px;}
+.horls{font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;margin-top:2px;}
+
+/* SPEC STRIP */
+.spec-strip{background:#180828;display:flex;}
+.ss-item{flex:1;padding:13px 10px;text-align:center;border-right:1px solid rgba(255,255,255,0.1);}
+.ss-item:last-child{border-right:none;}
+.ss-label{font-size:9.5px;color:rgba(255,255,255,0.5);letter-spacing:.8px;margin-bottom:4px;}
+.ss-val{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:900;color:#d0a0f8;line-height:1.2;}
+.ss-unit{font-size:9px;color:rgba(255,255,255,0.4);margin-top:2px;}
+
+/* FEATURES */
+.feat-sec{background:var(--white);padding:28px 36px;}
+.sec-eye{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-tag{background:var(--dark);color:#d0a0f8;font-size:9px;font-weight:800;padding:4px 13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:var(--gl);}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.feat-card{background:var(--purple-pale);border:1px solid var(--gl);padding:16px 18px;border-radius:6px;display:flex;gap:12px;align-items:flex-start;border-top:3px solid var(--purple-mid);}
+.fc-ico{font-size:22px;flex-shrink:0;}
+.fc-body{}
+.fc-title{font-size:13.5px;font-weight:800;color:var(--purple);margin-bottom:5px;}
+.fc-desc{font-size:12px;color:var(--gray);line-height:1.65;}
+.fc-desc em{color:var(--purple-mid);font-style:normal;font-weight:700;}
+
+/* NUTRITION */
+.nutr-sec{background:var(--purple-light);padding:26px 36px;border-top:3px solid var(--purple-mid);}
+.nutr-sec .sec-tag{background:var(--purple);color:#fff;}
+.nutr-inner{display:flex;gap:20px;margin-top:16px;}
+.nutr-left{flex:1;}
+.nutr-table{width:100%;border-collapse:collapse;}
+.nutr-table th{background:var(--purple);color:#fff;font-size:10.5px;font-weight:700;padding:8px 14px;text-align:left;letter-spacing:.5px;}
+.nutr-table td{padding:8px 14px;font-size:12.5px;color:var(--dark);border-bottom:1px solid var(--gl);background:var(--white);}
+.nutr-table tr:nth-child(even) td{background:var(--purple-pale);}
+.nutr-table tr:last-child td{border-bottom:none;}
+.nutr-table td:last-child{font-weight:700;color:var(--purple);text-align:right;}
+.nutr-right{width:240px;flex-shrink:0;display:flex;flex-direction:column;gap:12px;}
+.nr-box{background:var(--white);border:1.5px solid var(--gl);padding:16px 16px;border-radius:6px;}
+.nr-title{font-size:12px;font-weight:800;color:var(--purple);margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid var(--purple-mid);}
+.nr-items{display:flex;flex-direction:column;gap:6px;}
+.nr-item{font-size:12px;color:var(--dark);display:flex;gap:8px;line-height:1.5;}
+.nr-item::before{content:'●';color:var(--gold);flex-shrink:0;font-size:10px;margin-top:3px;}
+
+/* USAGE */
+.usage-sec{background:var(--white);padding:24px 36px;border-top:3px solid var(--purple-mid);}
+.usage-sec .sec-tag{background:var(--purple-mid);color:#fff;}
+.usage-inner{display:flex;gap:20px;margin-top:16px;}
+.ul{flex:1;}
+.ul-box{background:var(--purple-pale);border:1px solid var(--gl);padding:14px 16px;border-radius:5px;margin-bottom:10px;}
+.ulb-title{font-size:12px;font-weight:800;color:var(--purple);margin-bottom:6px;}
+.ulb-text{font-size:12px;color:var(--gray);line-height:1.65;}
+.ulb-text em{color:var(--purple);font-style:normal;font-weight:700;}
+.ur{width:220px;flex-shrink:0;}
+.pack-chips{display:flex;flex-direction:column;gap:8px;}
+.pack-chip{background:var(--dark);color:#d0a0f8;font-size:12px;font-weight:700;padding:9px 16px;border-radius:4px;text-align:center;}
+
+/* FOOTER */
+.footer{background:var(--dark);display:flex;overflow:hidden;}
+.ftl{flex:1;padding:20px 28px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.ft-lbl{font-size:10px;font-weight:700;color:#d0a0f8;letter-spacing:2px;text-transform:uppercase;}
+.ft-main{font-size:14px;font-weight:900;color:#fff;line-height:1.4;}
+.ft-cons{display:flex;gap:18px;margin-top:8px;}
+.fc{display:flex;flex-direction:column;gap:2px;}
+.fcl{font-size:8px;font-weight:700;letter-spacing:1.5px;color:#d0a0f8;text-transform:uppercase;}
+.fcv{font-size:11px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.ftr{width:175px;flex-shrink:0;background:var(--purple-mid);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 14px;text-align:center;gap:3px;}
+.ftr-co{font-size:11px;color:rgba(255,255,255,0.65);}
+.ftr-main{font-size:18px;font-weight:900;color:#fff;}
+.ftr-tel{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#ffe060;margin-top:3px;}
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+<div class="hero">
+  <div class="htop">
+    <span class="hbadge">판매업체: (주)에프앤티바이오 · 성분등록번호: AAHJQ 0002</span>
+    <span class="hco">제조: (주)청미바이오</span>
+  </div>
+  <div class="hbody">
+    <div class="hleft">
+      <p class="h-kicker">발효대두박 및 부산물 · 국내산 대두박 발효 단백질</p>
+      <h1 class="hname"><em>하이앤드</em> 프로서플</h1>
+      <p class="hsub">High-End Probiotic Supplement · 발효 특허균 단백질 원료</p>
+      <div class="h-tagline">
+        국내산 대두박을 <strong>특허 유산균 + 효모균 발효공법</strong>으로 제조.<br>
+        저분자 단백질 구성 · 바실러스균·유산균·효모균 10¹¹ 이상 · 항영양인자 최소화
+      </div>
+      <div class="hpills">
+        <span class="hpill">조단백 45% 이상</span>
+        <span class="hpill">저분자 단백질</span>
+        <span class="hpill">유익균 10¹¹ 이상</span>
+        <span class="hpill">항영양인자 최소화</span>
+        <span class="hpill">항산화·항염증</span>
+      </div>
+    </div>
+    <div class="hright">
+      <div class="horb">🌾</div>
+      <div class="horl">
+        <p class="horlm">하이앤드 프로서플</p>
+        <p class="horls">High-End Probiotic</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="spec-strip">
+  <div class="ss-item"><p class="ss-label">조단백질</p><p class="ss-val">45.0</p><p class="ss-unit">% 이상</p></div>
+  <div class="ss-item"><p class="ss-label">조회분</p><p class="ss-val">8.0</p><p class="ss-unit">% 이하</p></div>
+  <div class="ss-item"><p class="ss-label">수분</p><p class="ss-val">13.0</p><p class="ss-unit">% 이하</p></div>
+  <div class="ss-item"><p class="ss-label">조섬유</p><p class="ss-val">8.0</p><p class="ss-unit">% 이하</p></div>
+  <div class="ss-item"><p class="ss-label">KOH 용해도</p><p class="ss-val">65</p><p class="ss-unit">% 이상</p></div>
+  <div class="ss-item"><p class="ss-label">우레아제역가</p><p class="ss-val">0.3</p><p class="ss-unit">이하</p></div>
+</div>
+
+<div class="feat-sec">
+  <div class="sec-eye"><span class="sec-tag">제품 특성 및 장점</span><div class="sec-line"></div></div>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="fc-ico">🔬</div>
+      <div class="fc-body">
+        <p class="fc-title">저분자 단백질 구성 — 최고 체내 흡수율</p>
+        <p class="fc-desc">SDS-PAGE 확인 결과 <em>저분자 단백질</em>로 구성되어 소화·흡수가 빠르고 이용률이 매우 높습니다.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="fc-ico">🦠</div>
+      <div class="fc-body">
+        <p class="fc-title">유익균 10¹¹ 이상 함유</p>
+        <p class="fc-desc">바실러스균, 유산균, 효모균이 <em>10의 11승 이상</em> 함유되어 장내 환경을 강력하게 개선합니다.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="fc-ico">🚫</div>
+      <div class="fc-body">
+        <p class="fc-title">항영양인자 최소화</p>
+        <p class="fc-desc">Trypsin inhibitor, Glycinin, Allergen, Raffinose 등 <em>항영양인자를 낮은 수준</em>으로 유지하여 영양소 이용율을 극대화합니다.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="fc-ico">❤️</div>
+      <div class="fc-body">
+        <p class="fc-title">항산화·항염증 효과</p>
+        <p class="fc-desc">Kefir 균주 발효로 <em>항산화 효과</em>와 염증 관련 cytokine 발현 억제(항염증)를 실현합니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="nutr-sec">
+  <div class="sec-eye"><span class="sec-tag">영양학적 특성 및 성분 규격</span><div class="sec-line" style="background:rgba(90,24,128,0.2);"></div></div>
+  <div class="nutr-inner">
+    <div class="nutr-left">
+      <table class="nutr-table">
+        <thead><tr><th>성분</th><th>규격</th><th>기준</th></tr></thead>
+        <tbody>
+          <tr><td>조단백질</td><td>45.0% 이상</td><td>최소</td></tr>
+          <tr><td>조회분</td><td>8.0% 이하</td><td>최대</td></tr>
+          <tr><td>수분</td><td>13.0% 이하</td><td>최대</td></tr>
+          <tr><td>조섬유</td><td>8.0% 이하</td><td>최대</td></tr>
+          <tr><td>KOH 용해도</td><td>65% 이상</td><td>최소</td></tr>
+          <tr><td>우레아제역가</td><td>0.3 이하</td><td>최대</td></tr>
+          <tr><td>아플라톡신 B1 등</td><td>불검출</td><td>Elisa</td></tr>
+          <tr><td>Salmonella / E. Coli</td><td>음성</td><td>검사</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="nutr-right">
+      <div class="nr-box">
+        <p class="nr-title">🔬 다양한 유산균 생성</p>
+        <div class="nr-items">
+          <div class="nr-item">젖산 (Lactic acid)</div>
+          <div class="nr-item">구연산 (Citric acid)</div>
+          <div class="nr-item">초산 (Acetic acid)</div>
+          <div class="nr-item">사과산 (Malic acid)</div>
+        </div>
+      </div>
+      <div class="nr-box">
+        <p class="nr-title">🌱 Prebiotic 개념 장내 환경</p>
+        <div class="nr-items">
+          <div class="nr-item">α-galactosidase 외 다양한 효소 생성</div>
+          <div class="nr-item">냄새·퇴비부숙 환경 해소</div>
+          <div class="nr-item">12개월 이상 실온 보관 가능</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="usage-sec">
+  <div class="sec-eye"><span class="sec-tag">사용방법 및 포장</span><div class="sec-line"></div></div>
+  <div class="usage-inner">
+    <div class="ul">
+      <div class="ul-box">
+        <p class="ulb-title">📌 사용방법</p>
+        <p class="ulb-text">가축사료에 하이앤드 프로서플 첨가수준은 매우 다양합니다.<br>
+        배합사료 내 사용수준은 <em>1~15%</em>가 되게 하며, 축우·양돈·양계·양어 사료 모두 적용 가능합니다.</p>
+      </div>
+      <div class="ul-box">
+        <p class="ulb-title">📦 보관 방법</p>
+        <p class="ulb-text">햇볕이 들지 않는 <em>실온에 보관</em>. 제조일로부터 <em>1년간 유효</em>합니다.</p>
+      </div>
+    </div>
+    <div class="ur">
+      <p style="font-size:12px;font-weight:700;color:var(--purple);margin-bottom:8px;">포장 단위</p>
+      <div class="pack-chips">
+        <div class="pack-chip">5 kg (지대)</div>
+        <div class="pack-chip">20 kg (지대)</div>
+        <div class="pack-chip">500 kg (타이콘백)</div>
+      </div>
+      <div style="margin-top:12px;background:var(--purple-pale);border:1px solid var(--gl);padding:12px;border-radius:4px;font-size:11px;color:var(--gray);line-height:1.6;">
+        성상: 대두박 색상의 가루<br>
+        사료의 명칭: 발효대두박 및 부산물<br>
+        용도: 단미사료 / 식물성박류
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="ftl">
+    <p class="ft-lbl">판매 문의</p>
+    <p class="ft-main">하이앤드 프로서플 — 발효 단백질 프리미엄 원료<br>국내산 대두박 발효, 최고 흡수율 단백질</p>
+    <div class="ft-cons">
+      <div class="fc"><span class="fcl">판매업체</span><span class="fcv">(주)에프앤티바이오</span></div>
+      <div class="fc"><span class="fcl">Address</span><span class="fcv">서울 송파구 올림픽로 336, 2107호</span></div>
+      <div class="fc"><span class="fcl">Email</span><span class="fcv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cbada5bf94a9a2a48ba5aabdaeb9e5a8a4a6">[email&#160;protected]</a></span></div>
+    </div>
+  </div>
+  <div class="ftr">
+    <p class="ftr-co">에프앤티바이오</p>
+    <p

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>에너지 플러스</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0a8890;--teal-mid:#1aaab0;--teal-light:#e0f7f8;--teal-pale:#f0fcfd;
+  --blue:#1450a0;--blue-light:#e8f0fd;
+  --gold:#d4a010;--gold-light:#fdf5d8;
+  --orange:#d06010;
+  --dark:#081820;--gray:#3a5060;--gl:#d8eef0;--white:#fff;--cream:#f4fdfe;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#a0b8c0;display:flex;justify-content:center;padding:40px 20px;}
+.flyer{width:794px;background:var(--cream);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,0.28);}
+
+.hero{background:linear-gradient(135deg,#081828 0%,#1460a8 45%,#0a9098 100%);position:relative;overflow:hidden;padding:0;}
+.hero::before{content:'';position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,0.05);}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:11px 36px;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;z-index:2;}
+.hbadge{background:var(--gold);color:#3a2000;font-size:10px;font-weight:800;padding:3px 12px;border-radius:2px;letter-spacing:.8px;}
+.hco{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;}
+.hbody{display:flex;min-height:210px;position:relative;z-index:2;}
+.hleft{flex:1;padding:30px 36px 34px;}
+.h-kicker{font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:2px;margin-bottom:8px;}
+.hname{font-size:54px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px;margin-bottom:6px;}
+.hname em{color:#60e0e8;font-style:normal;}
+.heng{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.45);letter-spacing:2.5px;margin-bottom:14px;}
+.h-tagline{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.6;border-left:4px solid #60e0e8;padding-left:14px;margin-bottom:18px;}
+.h-tagline strong{color:#60e0e8;}
+.hpills{display:flex;gap:7px;flex-wrap:wrap;}
+.hpill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;}
+.hright{width:195px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px 18px;}
+.eorb{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#80f0f8 0%,#0a9098 45%,#082030 100%);border:3px solid rgba(96,224,232,0.4);display:flex;align-items:center;justify-content:center;font-size:48px;box-shadow:0 10px 32px rgba(0,0,0,0.35);}
+.eorl{text-align:center;}
+.eorlm{font-size:12px;font-weight:800;color:#60e0e8;letter-spacing:.5px;}
+.eorls{font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;margin-top:2px;}
+
+/* WHY STRIP */
+.why-strip{background:var(--dark);padding:16px 36px;display:flex;align-items:center;gap:20px;}
+.ws-icon{font-size:28px;}
+.ws-title{font-size:14px;font-weight:900;color:#fff;margin-bottom:4px;}
+.ws-items{display:flex;gap:14px;flex-wrap:wrap;}
+.ws-item{font-size:11.5px;color:rgba(255,255,255,0.75);background:rgba(255,255,255,0.08);padding:4px 10px;border-radius:12px;}
+.ws-arrow{font-size:16px;color:#60e0e8;font-weight:900;}
+.ws-result{font-size:12px;color:#60e0e8;font-weight:700;}
+
+/* FEATURE */
+.feat-sec{background:var(--white);padding:28px 36px;}
+.sec-eye{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-tag{background:var(--dark);color:#60e0e8;font-size:9px;font-weight:800;padding:4px 13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:var(--gl);}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.feat-card{background:var(--teal-pale);border:1px solid var(--gl);padding:18px 18px;border-radius:6px;display:flex;gap:12px;align-items:flex-start;}
+.fc-ico{width:40px;height:40px;background:var(--teal-light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.fc-body{}
+.fc-title{font-size:13.5px;font-weight:800;color:var(--teal);margin-bottom:5px;}
+.fc-desc{font-size:12px;color:var(--gray);line-height:1.65;}
+.fc-desc em{color:var(--teal);font-style:normal;font-weight:700;}
+
+/* EFFECTS BY ANIMAL */
+.eff-sec{background:var(--teal-light);padding:28px 36px;border-top:3px solid var(--teal-mid);}
+.eff-sec .sec-tag{background:var(--teal);color:#fff;}
+.eff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+.eff-card{background:var(--white);border:1px solid var(--gl);padding:18px 16px;border-radius:6px;border-top:3px solid var(--teal-mid);}
+.ec-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.ec-ico{font-size:22px;}
+.ec-name{font-size:15px;font-weight:800;color:var(--dark);}
+.ec-items{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.ec-items li{font-size:12px;color:var(--gray);display:flex;gap:7px;line-height:1.5;}
+.ec-items li::before{content:'→';color:var(--teal-mid);font-weight:700;flex-shrink:0;}
+
+/* DOSAGE */
+.dose-sec{background:var(--dark);padding:28px 36px;}
+.dose-sec .sec-tag{background:var(--teal-mid);color:var(--dark);}
+.dose-sec .sec-line{background:rgba(255,255,255,0.1);}
+.dose-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px;}
+.dose-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;overflow:hidden;}
+.dc-h{background:rgba(96,224,232,0.15);border-bottom:1px solid rgba(96,224,232,0.2);padding:10px 16px;display:flex;align-items:center;gap:8px;}
+.dc-ico{font-size:20px;}
+.dc-name{font-size:14px;font-weight:800;color:#fff;}
+.dc-body{padding:12px 16px;}
+.dc-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.dc-row:last-child{border-bottom:none;}
+.dc-stage{font-size:12px;color:rgba(255,255,255,0.65);}
+.dc-amt{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:800;color:#60e0e8;}
+.dc-unit{font-size:10px;color:rgba(255,255,255,0.4);}
+.dose-mfr{margin-top:16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:12px 16px;border-radius:4px;font-size:12px;color:rgba(255,255,255,0.55);}
+.dose-mfr strong{color:#60e0e8;}
+
+/* FOOTER */
+.footer{background:#050e14;display:flex;overflow:hidden;}
+.ftl{flex:1;padding:20px 28px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.ft-lbl{font-size:10px;font-weight:700;color:#60e0e8;letter-spacing:2px;text-transform:uppercase;}
+.ft-main{font-size:14px;font-weight:900;color:#fff;line-height:1.4;}
+.ft-cons{display:flex;gap:18px;margin-top:8px;}
+.fc{display:flex;flex-direction:column;gap:2px;}
+.fcl{font-size:8px;font-weight:700;letter-spacing:1.5px;color:#60e0e8;text-transform:uppercase;}
+.fcv{font-size:11px;color:rgba(255,255,255,0.7);line-height:1.5;}
+.ftr{width:175px;flex-shrink:0;background:var(--teal);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 14px;text-align:center;gap:3px;}
+.ftr-mfr{font-size:11px;color:rgba(255,255,255,0.65);}
+.ftr-main{font-size:18px;font-weight:900;color:#fff;}
+.ftr-tel{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#ffe060;margin-top:3px;}
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+<div class="hero">
+  <div class="htop">
+    <span class="hbadge">제조: ORFFA (네덜란드) · 수입판매원 에프앤티바이오</span>
+    <span class="hco">분말형태 / 25kg</span>
+  </div>
+  <div class="hbody">
+    <div class="hleft">
+      <p class="h-kicker">Excential Energy Plus · 전 축종 에너지 집중 공급</p>
+      <h1 class="hname">에너지<em> 플러스</em></h1>
+      <p class="heng">ENERGY PLUS</p>
+      <p class="h-tagline">
+        빠른 회복, 강한 체력 !<br>
+        <strong>고농축 에너지와 기능성 성분</strong>을 동시에 제공하여 빠르게 회복을 유도
+      </p>
+      <div class="hpills">
+        <span class="hpill">즉시 활용 고농축 에너지</span>
+        <span class="hpill">간 기능·면역 지원</span>
+        <span class="hpill">독특한 향미제</span>
+        <span class="hpill">전 축종 적용</span>
+      </div>
+    </div>
+    <div class="hright">
+      <div class="eorb">⚡</div>
+      <div class="eorl">
+        <p class="eorlm">Energy Plus</p>
+        <p class="eorls">ORFFA Excentials</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="why-strip">
+  <div class="ws-icon">⚠️</div>
+  <div style="flex:1;">
+    <p class="ws-title">이런 상황, 에너지 플러스가 필요합니다</p>
+    <div class="ws-items">
+      <span class="ws-item">고온 스트레스</span>
+      <span class="ws-item">질병 후 회복기</span>
+      <span class="ws-item">분만 직후</span>
+      <span class="ws-item">급성 에너지 소모</span>
+    </div>
+  </div>
+  <div><span class="ws-arrow">→</span> <span class="ws-result">섭취량 감소 + 에너지 요구 급증 시 필수!</span></div>
+</div>
+
+<div class="feat-sec">
+  <div class="sec-eye"><span class="sec-tag">주요 기능</span><div class="sec-line"></div></div>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="fc-ico">⚡</div>
+      <div class="fc-body">
+        <p class="fc-title">즉시 활용 가능한 고농축 에너지</p>
+        <p class="fc-desc">빠른 대사 경로로 공급되는 <em>고밀도 에너지원</em>으로 스트레스·회복기 에너지 결핍을 신속하게 해소합니다.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="fc-ico">🫀</div>
+      <div class="fc-body">
+        <p class="fc-title">간 기능 및 면역 지원</p>
+        <p class="fc-desc">에너지 대사 과부하 시 <em>간 보호 성분</em>이 간 기능을 지원하고 면역 체계를 강화합니다.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="fc-ico">🍬</div>
+      <div class="fc-body">
+        <p class="fc-title">섭취 유도 — 독특한 향미제</p>
+        <p class="fc-desc">식욕 저하 상황에서도 <em>독특한 향미 성분</em>이 섭취를 유도하여 회복 기간을 단축합니다.</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <div class="fc-ico">💪</div>
+      <div class="fc-body">
+        <p class="fc-title">체력 회복 및 생산성 향상</p>
+        <p class="fc-desc">에너지 공급 정상화로 <em>일당증체량, 사료효율, 장건강</em>이 빠르게 회복됩니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="eff-sec">
+  <div class="sec-eye"><span class="sec-tag">축종별 급여 효과</span><div class="sec-line" style="background:rgba(10,136,144,0.2);"></div></div>
+  <div class="eff-grid">
+    <div class="eff-card">
+      <div class="ec-head"><span class="ec-ico">🐄</span><p class="ec-name">한우·비육우</p></div>
+      <ul class="ec-items">
+        <li>일일 증체량 개선</li>
+        <li>사료효율 개선</li>
+        <li>도체중 증가</li>
+        <li>고급육 생산 증가</li>
+        <li>장건강 기여</li>
+      </ul>
+    </div>
+    <div class="eff-card">
+      <div class="ec-head"><span class="ec-ico">🐷</span><p class="ec-name">자돈</p></div>
+      <ul class="ec-items">
+        <li>지방소화 및 성장 ↑</li>
+        <li>면역력 향상</li>
+        <li>이유 스트레스 경감</li>
+        <li>설사 예방 지원</li>
+      </ul>
+    </div>
+    <div class="eff-card">
+      <div class="ec-head"><span class="ec-ico">🥛</span><p class="ec-name">착유우</p></div>
+      <ul class="ec-items">
+        <li>분만 후 케토시스 예방</li>
+        <li>섭취량 빠른 회복</li>
+        <li>유량 안정</li>
+        <li>에너지 부족 예방</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:12px;background:var(--white);border:1px solid var(--gl);padding:12px 16px;border-radius:4px;display:flex;gap:24px;">
+    <div style="flex:1;font-size:12px;color:var(--gray);">🐔 <strong style="color:var(--teal);">육계·산란계</strong> — 고온기 섭취량 회복, 산란율 유지</div>
+    <div style="flex:1;font-size:12px;color:var(--gray);">🐷 <strong style="color:var(--teal);">자돈·육성·비육돈·모돈</strong> — 350g / 사료톤당</div>
+  </div>
+</div>
+
+<div class="dose-sec">
+  <div class="sec-eye"><span class="sec-tag">용법 및 용량</span><div class="sec-line"></div></div>
+  <div class="dose-grid">
+    <div class="dose-card">
+      <div class="dc-h"><span class="dc-ico">🐄</span><p class="dc-name">한우 비육우 (~출하 8개월 전)</p></div>
+      <div class="dc-body">
+        <div class="dc-row"><span class="dc-stage">일일 두당</span><div><span class="dc-amt">12.5</span><span class="dc-unit"> g / 일 · 두당</span></div></div>
+      </div>
+    </div>
+    <div class="dose-card">
+      <div class="dc-h"><span class="dc-ico">🥛</span><p class="dc-name">착유우</p></div>
+      <div class="dc-body">
+        <div class="dc-row"><span class="dc-stage">사료 톤당</span><div><span class="dc-amt">350</span><span class="dc-unit"> g / 사료톤당</span></div></div>
+      </div>
+    </div>
+    <div class="dose-card">
+      <div class="dc-h"><span class="dc-ico">🐷</span><p class="dc-name">자돈·육성·비육돈·모돈</p></div>
+      <div class="dc-body">
+        <div class="dc-row"><span class="dc-stage">사료 톤당</span><div><span class="dc-amt">350</span><span class="dc-unit"> g / 사료톤당</span></div></div>
+      </div>
+    </div>
+    <div class="dose-card">
+      <div class="dc-h"><span class="dc-ico">🐔</span><p class="dc-name">산란계 · 육계</p></div>
+      <div class="dc-body">
+        <div class="dc-row"><span class="dc-stage">사료 톤당</span><div><span class="dc-amt">350</span><span class="dc-unit"> g / 사료톤당</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="dose-mfr">제조: <strong>ORFFA (네덜란드)</strong> · 수입판매원: (주)에프앤티바이오 · 분말형태 / 25kg 포장</div>
+</div>
+
+<div class="footer">
+  <div class="ftl">
+    <p class="ft-lbl">상담 및 주문</p>
+    <p class="ft-main">빠른 회복, 강한 체력 — 에너지 플러스<br>ORFFA 수입 프리미엄 에너지 공급 솔루션</p>
+    <div class="ft-cons">
+      <div class="fc"><span class="fcl">수입판매원</span><span class="fcv">(주)에프앤티바이오</span></div>
+      <div class="fc"><span class="fcl">제조</span><span class="fcv">ORFFA (네덜란드)</span></div>
+      <div class="fc"><span class="fcl">Email</span><span class="fcv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93f5fde7ccf1fafcd3fdf2e5f6e1bdf0fcfe">[email&#160;protected]</a></span></div>
+    </div>
+  </div>
+  <div class="ftr">
+    <p class="ftr-mfr">상담 및 주문</p>
+    <p class="f

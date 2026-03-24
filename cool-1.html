@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>시원해 1호</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#0a90d0;--sky-mid:#1ab0f0;--sky-light:#e0f6ff;--sky-pale:#f0fbff;
+  --orange:#e06010;--orange-light:#fff3e8;
+  --gold:#d4a010;--gold-light:#fdf5d8;
+  --dark:#0a1e2a;--gray:#4a6070;--gl:#ddeef8;--white:#fff;--cream:#f4fbff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans KR',sans-serif;background:#a8c8d8;display:flex;justify-content:center;padding:40px 20px;}
+.flyer{width:794px;background:var(--cream);overflow:hidden;box-shadow:0 28px 70px rgba(0,0,0,0.28);}
+
+.hero{background:linear-gradient(135deg,#0a5890 0%,#0a9aca 55%,#e07820 100%);position:relative;overflow:hidden;padding:0;}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,0.06);}
+.htop{display:flex;justify-content:space-between;align-items:center;padding:11px 36px;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;z-index:2;}
+.hbadge{background:var(--orange);color:#fff;font-size:10px;font-weight:800;padding:3px 12px;border-radius:2px;letter-spacing:.8px;}
+.hco{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;}
+.hbody{display:flex;min-height:210px;position:relative;z-index:2;}
+.hleft{flex:1;padding:30px 36px 34px;}
+.h-kicker{font-size:12px;font-weight:700;color:rgba(255,255,255,0.65);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.hname{font-size:62px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px;margin-bottom:6px;}
+.hname em{color:#ffe060;font-style:normal;}
+.h-tagline{font-size:16px;font-weight:700;color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.12);border-left:4px solid #ffe060;padding:10px 16px;border-radius:0 4px 4px 0;margin-bottom:18px;line-height:1.5;}
+.hpills{display:flex;gap:7px;flex-wrap:wrap;}
+.hpill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.28);color:#fff;font-size:11px;font-weight:600;padding:5px 13px;border-radius:20px;}
+.hright{width:200px;flex-shrink:0;border-left:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px 18px;}
+.sorb{width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#80e0ff 0%,#0a90d0 50%,#0a4070 100%);border:3px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:54px;box-shadow:0 10px 32px rgba(0,0,0,0.35);}
+.sorl{text-align:center;}
+.sorlm{font-size:14px;font-weight:800;color:#ffe060;letter-spacing:.5px;}
+.sorls{font-size:9px;color:rgba(255,255,255,0.38);letter-spacing:1.2px;margin-top:2px;}
+
+/* THI DANGER */
+.thi-strip{background:var(--orange);display:flex;align-items:stretch;}
+.thi-left{flex:1;padding:16px 36px;display:flex;align-items:center;gap:16px;}
+.thi-icon{font-size:28px;}
+.thi-text{flex:1;}
+.thi-title{font-size:15px;font-weight:900;color:#fff;margin-bottom:3px;}
+.thi-sub{font-size:12px;color:rgba(255,255,255,0.8);}
+.thi-right{display:flex;}
+.thi-box{padding:14px 22px;text-align:center;border-left:1px solid rgba(255,255,255,0.25);}
+.thi-box-label{font-size:10px;color:rgba(255,255,255,0.7);font-weight:700;letter-spacing:.5px;margin-bottom:5px;}
+.thi-box-val{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#fff;}
+.thi-box-unit{font-size:10px;color:rgba(255,255,255,0.65);}
+.thi-box-arrow{font-size:18px;margin-left:4px;}
+
+/* COMPONENT */
+.comp-sec{background:var(--white);padding:28px 36px;}
+.sec-eye{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.sec-tag{background:var(--dark);color:#ffe060;font-size:9px;font-weight:800;padding:4px 13px;letter-spacing:2px;text-transform:uppercase;border-radius:2px;}
+.sec-line{flex:1;height:1px;background:var(--gl);}
+.comp-inner{display:flex;gap:24px;}
+.comp-left{flex:1;}
+.comp-box{background:var(--sky-pale);border:1.5px solid var(--gl);padding:20px 20px;border-radius:6px;}
+.cb-title{font-size:14px;font-weight:800;color:var(--sky);margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--sky-light);}
+.cb-main{font-size:18px;font-weight:900;color:var(--dark);margin-bottom:6px;}
+.cb-subs{font-size:13px;color:var(--gray);line-height:1.65;margin-bottom:14px;}
+.cb-subs em{color:var(--sky);font-style:normal;font-weight:700;}
+.comp-right{width:280px;flex-shrink:0;}
+
+/* EFFECTS */
+.eff-cards{display:flex;flex-direction:column;gap:10px;}
+.eff-card{background:var(--sky-light);border:1px solid #b8e0f5;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;border-radius:6px;}
+.ec-ico{font-size:22px;flex-shrink:0;}
+.ec-body{}
+.ec-title{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:3px;}
+.ec-desc{font-size:12px;color:var(--gray);line-height:1.55;}
+.ec-desc em{color:var(--sky);font-style:normal;font-weight:700;}
+
+/* RADAR VISUAL */
+.radar-box{background:var(--sky-pale);border:1.5px solid var(--gl);padding:18px;border-radius:6px;text-align:center;margin-top:14px;}
+.radar-title{font-size:11px;font-weight:700;color:var(--sky);margin-bottom:12px;}
+.radar-svg{width:100%;max-width:200px;}
+
+/* DOSAGE */
+.dose-sec{background:var(--dark);padding:28px 36px;}
+.dose-sec .sec-tag{background:var(--sky-mid);color:var(--dark);}
+.dose-sec .sec-line{background:rgba(255,255,255,0.1);}
+.dose-note{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:18px;line-height:1.6;background:rgba(255,255,255,0.06);padding:12px 16px;border-radius:4px;}
+.dose-note strong{color:#ffe060;}
+.dose-table{width:100%;border-collapse:collapse;}
+.dose-table th{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);font-size:11px;font-weight:700;padding:9px 14px;text-align:center;letter-spacing:.5px;}
+.dose-table th:first-child{text-align:left;}
+.dose-table td{padding:9px 14px;font-size:12.5px;border-bottom:1px solid rgba(255,255,255,0.08);text-align:center;color:rgba(255,255,255,0.8);}
+.dose-table td:first-child{text-align:left;font-weight:600;color:#fff;}
+.dose-table tr:last-child td{border-bottom:none;}
+.dose-table td.highlight{color:#ffe060;font-weight:700;}
+.dose-warn{margin-top:12px;font-size:12px;color:rgba(255,255,255,0.5);font-style:italic;text-align:center;}
+.dose-warn strong{color:#ffe060;}
+
+/* FOOTER */
+.footer{background:#071420;display:flex;overflow:hidden;}
+.ftl{flex:1;padding:20px 28px;display:flex;flex-direction:column;justify-content:center;gap:4px;}
+.ft-lbl{font-size:10px;font-weight:700;color:var(--sky-mid);letter-spacing:2px;text-transform:uppercase;}
+.ft-main{font-size:14px;font-weight:900;color:#fff;line-height:1.4;}
+.ft-cons{display:flex;gap:18px;margin-top:8px;}
+.fc{display:flex;flex-direction:column;gap:2px;}
+.fcl{font-size:8px;font-weight:700;letter-spacing:1.5px;color:#80d8f8;text-transform:uppercase;}
+.fcv{font-size:11px;color:rgba(255,255,255,0.72);line-height:1.5;}
+.ftr{width:175px;flex-shrink:0;background:var(--sky);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 14px;text-align:center;gap:3px;}
+.ftr-top{font-size:10px;color:rgba(255,255,255,0.6);}
+.ftr-co{font-size:12px;font-weight:700;color:rgba(255,255,255,0.85);}
+.ftr-main{font-size:18px;font-weight:900;color:#fff;line-height:1.1;}
+.ftr-tel{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#ffe060;margin-top:3px;}
+</style>
+
+<style>
+.back-to-catalog {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  background: rgba(10,24,32,0.88);
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.28);
+  transition: background 0.2s;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.back-to-catalog:hover { background: rgba(10,100,80,0.95); }
+</style>
+</head>
+<body>
+<a class="back-to-catalog" href="../index.html">← 카탈로그로 돌아가기</a>
+
+<div class="flyer">
+
+<div class="hero">
+  <div class="htop">
+    <span class="hbadge">제품개발 및 마케팅 · 주식회사 에프앤티바이오</span>
+    <span class="hco">FNT BIO CO., LTD.</span>
+  </div>
+  <div class="hbody">
+    <div class="hleft">
+      <p class="h-kicker">Heat Stress Solution · 고온 스트레스 극복</p>
+      <h1 class="hname">시원<em>해</em> 1호</h1>
+      <div class="h-tagline">가축 고온 스트레스를 과학적으로 극복하세요</div>
+      <div class="hpills">
+        <span class="hpill">Macrominerals 복합</span>
+        <span class="hpill">Na · K · Mg</span>
+        <span class="hpill">반추위 pH 유지</span>
+        <span class="hpill">산증 예방</span>
+        <span class="hpill">전해질 보충</span>
+      </div>
+    </div>
+    <div class="hright">
+      <div class="sorb">☀️</div>
+      <div class="sorl">
+        <p class="sorlm">시원해 1호</p>
+        <p class="sorls">Heat Stress Solution</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="thi-strip">
+  <div class="thi-left">
+    <div class="thi-icon">🌡️</div>
+    <div class="thi-text">
+      <p class="thi-title">THI(온습도지수) 72~79 구간 — 고온 스트레스 시작!</p>
+      <p class="thi-sub">이 구간부터 가축의 생산성이 급격히 저하됩니다. 시원해 1호로 선제적으로 대응하세요.</p>
+    </div>
+  </div>
+  <div class="thi-right">
+    <div class="thi-box">
+      <p class="thi-box-label">섭취량</p>
+      <div><span class="thi-box-val">5~10</span><span class="thi-box-unit">%</span></div>
+      <span class="thi-box-arrow" style="color:#ff8870;">↓</span> <span style="font-size:10px;color:rgba(255,255,255,0.7);">감소</span>
+    </div>
+    <div class="thi-box">
+      <p class="thi-box-label">증체량</p>
+      <div><span class="thi-box-val">5~15</span><span class="thi-box-unit">%</span></div>
+      <span class="thi-box-arrow" style="color:#ff8870;">↓</span> <span style="font-size:10px;color:rgba(255,255,255,0.7);">감소</span>
+    </div>
+  </div>
+</div>
+
+<div class="comp-sec">
+  <div class="sec-eye"><span class="sec-tag">주요 성분과 특성</span><div class="sec-line"></div></div>
+  <div class="comp-inner">
+    <div class="comp-left">
+      <div class="comp-box">
+        <p class="cb-title">핵심 성분 — Macrominerals</p>
+        <p class="cb-main">Na · K · Mg 등 전해질 복합</p>
+        <p class="cb-subs">
+          고온 환경에서 <em>땀과 함께 손실되는 필수 전해질</em>을 신속하게 보충.<br>
+          반추위 내 완충액 역할을 하여 <em>pH 안정</em>과 <em>산증 예방</em>에 핵심적 역할을 합니다.
+        </p>
+        <div style="background:var(--sky-light);border-radius:4px;padding:12px 14px;">
+          <p style="font-size:12px;color:var(--dark);font-weight:700;margin-bottom:6px;">⭐ 고온기 시작 2주 전부터 사전 급여 시 효과 극대화</p>
+          <p style="font-size:12px;color:var(--gray);line-height:1.6;">선제적 급여로 고온 스트레스에 대한 적응력을 미리 높여 생산성 저하를 최소화합니다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="comp-right">
+      <div class="eff-cards">
+        <div class="eff-card">
+          <div class="ec-ico">💧</div>
+          <div class="ec-body">
+            <p class="ec-title">수분 균형 유지</p>
+            <p class="ec-desc"><em>전해질 복합 공급</em>으로 체내 수분 균형을 유지하고 탈수를 예방합니다.</p>
+          </div>
+        </div>
+        <div class="eff-card">
+          <div class="ec-ico">🔋</div>
+          <div class="ec-body">
+            <p class="ec-title">손실 미네랄 보충</p>
+            <p class="ec-desc">열스트레스와 <em>땀으로 손실된 Na, K, Mg</em>을 신속하게 재보충합니다.</p>
+          </div>
+        </div>
+        <div class="eff-card">
+          <div class="ec-ico">⚖️</div>
+          <div class="ec-body">
+            <p class="ec-title">반추위 pH 유지</p>
+            <p class="ec-desc">전해질과 <em>반추위 완충액 역할</em>로 고온기 산증 위험을 차단합니다.</p>
+          </div>
+        </div>
+        <div class="eff-card">
+          <div class="ec-ico">📈</div>
+          <div class="ec-body">
+            <p class="ec-title">생산성 유지</p>
+            <p class="ec-desc">섭취량 회복과 대사 안정으로 <em>고온기 생산성 저하를 최소화</em>합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dose-sec">
+  <div class="sec-eye"><span class="sec-tag">권장 급여량 (사료에 혼합)</span><div class="sec-line"></div></div>
+  <p class="dose-note">모든 급여는 <strong>사료에 혼합</strong>하여 급여합니다. 고온기 시작 <strong>2주 전부터</strong> 사전 급여 시 효과가 극대화됩니다.</p>
+  <table class="dose-table">
+    <thead>
+      <tr><th>축종</th><th>급여 방법</th><th>1일 권장 급여량</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>한우 비육우 / 번식우</td><td>사료에 혼합</td><td class="highlight">0.5%~1.0% / 사료톤당</td></tr>
+      <tr><td>착유우 (건유우)</td><td>사료에 혼합</td><td class="highlight">1%~2% / 사료톤당</td></tr>
+      <tr><td>한우</td><td>사료에 혼합</td><td class="highlight">50g / 두당 · 일</td></tr>
+      <tr><td>젖소</td><td>사료에 혼합</td><td class="highlight">100g / 두당 · 일</td></tr>
+    </tbody>
+  </table>
+  <p class="dose-warn">※ <strong>고온기 시작 2주 전부터</strong> 사전 급여 시 효과가 극대화됩니다.</p>
+</div>
+
+<div class="footer">
+  <div class="ftl">
+    <p class="ft-lbl">제품개발 및 마케팅</p>
+    <p class="ft-main">시원해 1호 — 가축 고온 스트레스 극복 솔루션<br>고온기 생산성 저하를 선제적으로 차단하세요</p>
+    <div class="ft-cons">
+      <div class="fc"><span class="fcl">Company</span><span class="fcv">주식회사 에프앤티바이오</span></div>
+      <div class="fc"><span class="fcl">Address</span><span class="fcv">서울특별시 송파구 올림픽로 336, 2107호</span></div>
+      <div class="fc"><span class="fcl">Tel</span><span class="fcv">02-6498-3588 / 010-5269-1459</span></div>
+    </div>
+  </div>
+  <div class="ftr">
+    <p class="ftr-top">제품문의</p>
+    <p class="ftr-co">에프앤티바이오</p>
+    <p class="ftr-main">즉시<br>상담</p>
+    <p class="ftr-tel">010-5269-1459</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
